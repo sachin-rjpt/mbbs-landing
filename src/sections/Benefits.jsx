@@ -142,7 +142,7 @@ const benefits = [
                 </div>
             </div>
              <p className="section-text">Kyrgyzstan is one of Central Asia's most affordable and welcoming MBBS destinations for Indian students. Located in the heart of Central Asia with the majestic Tian Shan mountains as a backdrop, the country offers a peaceful, student-focused environment. Bishkek — the capital — is a modern, safe city with a large Indian student community, Indian restaurants, and easy connectivity to India.</p>
-             <div className="grid md:grid-cols-2 grid-cols-1 items-center justify-center">
+             <div className="grid grid-cols-2 items-center justify-center">
                {universityHighlights.map((ele)=>(
                 <div key={ele.id} className="flex  flex-col items-center justify-center flex-wrap  gap-2 m-1 border border-gray-200 p-2 hover:shadow-sm transition-all duration-300ms">
                     <p className="text-gray-700/70 text-sm">{ele.title}</p>
