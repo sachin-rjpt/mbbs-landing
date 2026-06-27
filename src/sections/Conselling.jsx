@@ -1,4 +1,5 @@
 import { useState } from "react";
+import {toast} from "sonner";
 export default function Counselling() {
 const data = {
   badge: "FREE COUNSELLING — MBBS ABROAD",
@@ -82,8 +83,8 @@ const handleChange=(e)=>{
 }
 const handleSubmit=(e)=>{
     e.preventDefault();
-    console.log(formData);
-    alert("Submitted Successfully");
+    // console.log(formData);
+   toast.success("Counselling request submitted successfully");
     setFormData(() => ({
       studentName: "",
       phone: "",

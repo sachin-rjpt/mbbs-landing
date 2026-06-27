@@ -119,8 +119,8 @@ export default function Footer() {
 
           {/* CTA */}
           <div className="flex justify-center lg:justify-end mt-14">
-            <button className="bg-[#B21D34] text-white px-10 py-4 rounded-2xl text-base md:text-lg font-semibold hover:opacity-90 transition">
-              {footerData.ctaButton}
+            <button  className="bg-[#B21D34] text-white px-10 py-4 rounded-2xl text-base md:text-lg font-semibold hover:opacity-90 transition">
+             <a href="tel:+919044442989">{footerData.ctaButton}</a>
             </button>
           </div>
 

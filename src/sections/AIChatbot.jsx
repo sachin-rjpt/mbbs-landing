@@ -3,6 +3,8 @@ import { SlArrowLeft } from "react-icons/sl";
 import { GoXCircle } from "react-icons/go";
 import { IoSend } from "react-icons/io5";
 import { chatbotTree } from "../data/Chatbot/chatbotTree";
+import { useMemo } from "react";
+import { LuBotMessageSquare } from "react-icons/lu";
 export default function AIChatbot(){
     const [open,setOpen]=useState(false);
     const [node,setNode]=useState(chatbotTree.home);
@@ -25,6 +27,11 @@ export default function AIChatbot(){
         behavior:"smooth",
       });
     },[chat]);
+  const lastAiId = useMemo(() => {
+  return [...chat]
+    .reverse()
+    .find((msg) => msg.sender === "ai")?.id;
+}, [chat]);
     const handleReply = (opn) => {
   const nextNode = chatbotTree[opn.next];
   setChat((prev) => [
@@ -55,12 +62,32 @@ export default function AIChatbot(){
     return(
         <>
         {!open?
-          <div className="fixed flex flex-row items-center top-1/2 right-0 bg-white py-8 z-[9999] rounded-xl">
-             <h2 onClick={()=>setOpen(!open)}><SlArrowLeft size={20}/></h2>
-             <h2 className="rotate-270 font-mono">Ask Que?</h2>
-          </div>
-          :<div className="fixed h-[40%] w-[40%] w-16 bg-white right-4 top-8 flex flex-col rounded-2xl">
-            <div className="flex flex-row items-center justify-center bg-sky-100 font-mono">
+          // <div onClick={()=>setOpen(!open)} className="fixed flex flex-col items-center top-1/2 right-0 bg-white py-8 z-[9999] rounded-full">
+          //    {/* <h2 onClick={()=>setOpen(!open)}><SlArrowLeft size={20}/></h2> */}
+          //    <h2 className="font-mono p-2">Ask Que?</h2>
+          // </div>
+          <div onClick={()=>setOpen(true)} className="fixed bottom-6 right-6  flex  items-center  gap-3
+    bg-gradient-to-r
+    from-sky-600
+    to-blue-700
+    px-5
+    py-3
+    rounded-full
+    shadow-2xl
+    hover:scale-105
+    transition-all
+    duration-300
+    cursor-pointer
+    z-[9999]
+    "><LuBotMessageSquare size={28} className="text-white"/>
+
+<span className="text-white font-semibold">
+Ask AI
+</span>
+
+</div>
+          :<div className="fixed h-[60%] w-[70%]  top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2  bg-gradient-to-r from-sky-300 via-sky-200 to-blue-100 rounded-2xl overflow-hidden flex flex-col ">
+            <div className="flex flex-row items-center justify-center bg-gradient-to-r from-sky-600 to-blue-700 text-white  font-mono">
               <h1>AI Assistant</h1>
               <GoXCircle onClick={()=>setOpen(!open)} className="absolute right-1"/>
             </div>
@@ -68,13 +95,13 @@ export default function AIChatbot(){
                {chat.map((e)=>(
                 e.sender==='ai'?
                 <div key={e.id} className="flex items-center justify-start">
-                <div className="w-[80%] border border-gray-200 shadow-sm bg-gray-100 rounded-xl text-xs p-2 m-2">
+                <div className="w-[80%] border border-gray-200 shadow-sm bg-white/80 backdrop-blur-sm border border-white/50 text-slate-800 rounded-xl text-xs p-2 m-2">
                 <h3 className="font-semibold">{e.title}</h3>
                  <p className="text-gray-700">{e.message}</p>
                  <div>
                   <ul>
                     {e.options.map((opn,idx)=>(
-                      <li onClick={()=>handleReply(opn)} key={idx} className="border border-gray-200 my-1 p- hover:underline transition-all duration-300" >{opn.label} </li>
+                      <li onClick={()=>{ if(e.id===lastAiId){handleReply(opn)}}} key={idx}  className={`border border-gray-200 my-1 p-2 rounded-lg transition ${e.id === lastAiId ? "cursor-pointer hover:bg-sky-100": "pointer-events-none opacity-50"}`}>{opn.label} </li>
                     ))}
                   </ul>
                  </div>

@@ -7,7 +7,7 @@
   FaMoneyBillWave,
 } from "react-icons/fa";
 export default function Benefits(){
-    const card="flex flex-col py-16 px-8 bg-white items-start justify-center gap-4 hover:scale-105 transition-all duration-300";
+    const card="flex flex-col px-8 py-8 bg-white items-start justify-center gap-4 hover:scale-105 transition-all duration-300";
     const Symbol="text-2xl font-semibold";
     const heading="section-card-title";
     const para="section-text";
