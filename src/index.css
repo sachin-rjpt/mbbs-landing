@@ -1,1 +1,27 @@
 @import "tailwindcss";
+
+@layer utilities {
+  .section-eyebrow {
+    @apply text-xs font-semibold uppercase tracking-[0.3em] text-red-700;
+  }
+
+  .section-title {
+    @apply text-3xl md:text-4xl font-semibold font-serif leading-tight text-[#07144D];
+  }
+
+  .section-subtitle {
+    @apply text-xl md:text-2xl font-semibold text-slate-900;
+  }
+
+  .section-card-title {
+    @apply text-lg md:text-xl font-semibold text-slate-900;
+  }
+
+  .section-text {
+    @apply text-sm md:text-base leading-7 text-slate-600;
+  }
+
+  .section-strong {
+    @apply font-semibold text-slate-900;
+  }
+}

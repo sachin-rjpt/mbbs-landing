@@ -61,13 +61,13 @@ export default function Countries(){
     return(
        <div className="flex flex-col items-center justify-center m-4">
         <div className="flex items-center justify-center p-4">
-            <p className="font-mono">WE COUNSEL FOR MBBS ACROSS 8 COUNTRIES -- FIND THE RIGHT FIT FOR YOUR PROFILE & BUDGET</p>
+            <p className="section-eyebrow text-center">WE COUNSEL FOR MBBS ACROSS 8 COUNTRIES -- FIND THE RIGHT FIT FOR YOUR PROFILE & BUDGET</p>
         </div>
         <div className="flex flex-wrap">
          {countries.map((ele)=>(
             <div key={ele.id} className={ele.isPartner?"flex items-center justify-center px-2 m-2 border rounded-sm bg-red-200/50 hover:scale-105 transition-all duration-300ms ":"flex items-center justify-center px-2 m-2 border rounded-sm bg-blue-100/50 hover:scale-105 transition-all duration-300ms "}>
                 <span className="font-semibold m-2">{ele.notation}</span>
-                <span>{ele.country}</span>
+                <span className="section-strong">{ele.country}</span>
                  {ele.isPartner && (
         <span className="m-2 bg-red-100 text-red-600 px-2 py-1 rounded">
           ★ PARTNER

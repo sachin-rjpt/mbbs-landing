@@ -76,32 +76,32 @@ export default function Eligibility(){
   },
 ];
     return(
-       <div className="grid grid-cols-2 py-16 px-6 gap-8 bg-blue-100/40">
+       <div className="grid grid-cols-1 md:grid-cols-2  px-6 gap-8 bg-blue-100/40">
         <div className="flex flex-col items-start justify-start gap-4">
-          <h3 className="text-red-700">WHO CAN APPLY</h3>
-          <h1 className="font-bold font-serif text-3xl">Eligibility for MBBS in Kyrgyzstan</h1>
+          <h3 className="section-eyebrow">WHO CAN APPLY</h3>
+          <h1 className="section-title">Eligibility for MBBS in Kyrgyzstan</h1>
           <div className="flex flex-col items-center justify-center gap-2">
            {eligibilityData.map((ele)=>(
             <div className="flex flex-row items-center gap-2 border-b-1 border-b-gray-300" key={ele.id}>
               <h1 className="bg-red-800">{ele.icon}</h1>
               <div className="flex flex-col items-start justify-center flex-wrap p-4 gap-4">
-                <h2 className=" font-semibold ">{ele.title}</h2>
-                <p className="text-gray-700/70 text-xs">{ele.description}</p>
+                <h2 className="section-card-title">{ele.title}</h2>
+                <p className="section-text">{ele.description}</p>
               </div>
             </div>
            ))}
           </div>
         </div>
         <div className="flex flex-col items-start justify-start gap-4">
-          <h3 className="text-red-700">HOW IT WORKS</h3>
-          <h1 className="font-bold font-serif text-3xl">Our Kyrgyzstan Admission Process</h1>
+          <h3 className="section-eyebrow">HOW IT WORKS</h3>
+          <h1 className="section-title">Our Kyrgyzstan Admission Process</h1>
           <div className="flex flex-col items-center justify-center gap-2">
            {admissionProcessData.map((ele)=>(
             <div className="flex flex-row items-center gap-2 border-b-1 border-b-gray-300" key={ele.step}>
               <h1 className="text-red-800 text-xl">{ele.step}</h1>
               <div className="flex flex-col items-start justify-center flex-wrap p-4 gap-4">
-                <h2 className="font-semibold">{ele.title}</h2>
-                <p className="text-gray-700/70 text-xs">{ele.description}</p>
+                <h2 className="section-card-title">{ele.title}</h2>
+                <p className="section-text">{ele.description}</p>
               </div>
             </div>
            ))}

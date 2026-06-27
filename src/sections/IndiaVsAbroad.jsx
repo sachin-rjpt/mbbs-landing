@@ -75,17 +75,17 @@ export default function IndiaVsAbroad() {
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="max-w-2xl mb-12">
-          <p className="text-[11px] font-semibold tracking-[3px] text-red-700 uppercase mb-4">
+          <p className="section-eyebrow mb-4 text-red-700">
             India vs Abroad
           </p>
 
-          <h2 className="text-4xl md:text-5xl font-serif font-bold text-[#0b1f4d] leading-tight">
+          <h2 className="section-title text-[#0b1f4d]">
             MBBS in India vs
             <br />
             MBBS Abroad — The Real Picture
           </h2>
 
-          <p className="mt-5 text-slate-500 leading-relaxed">
+          <p className="mt-5 section-text">
             Before you decide, see what the numbers and ground realities
             actually say. No bias — just facts.
           </p>
@@ -102,10 +102,10 @@ export default function IndiaVsAbroad() {
                 </span>
 
                 <div>
-                  <h3 className="text-2xl font-serif text-[#0b1f4d]">
+                  <h3 className="section-subtitle text-[#0b1f4d]">
                     MBBS in India
                   </h3>
-                  <p className="text-xs text-slate-500">
+                  <p className="text-sm text-slate-500">
                     Private Medical Colleges • 2026 Reality
                   </p>
                 </div>
@@ -121,10 +121,10 @@ export default function IndiaVsAbroad() {
                 <span className="text-3xl">🌍</span>
 
                 <div>
-                  <h3 className="text-2xl font-serif text-[#0b1f4d]">
+                  <h3 className="section-subtitle text-[#0b1f4d]">
                     MBBS Abroad
                   </h3>
-                  <p className="text-xs text-orange-600">
+                  <p className="text-sm text-orange-600">
                     NMC-Approved • Russia, Georgia, Kyrgyzstan & More
                   </p>
                 </div>

@@ -265,11 +265,11 @@ const countries = [
 ];
     return (
         <>
-         <div className="flex flex-col bg-blue-100/40 py-16">
+         <div className="flex flex-col bg-blue-100/40 py-4 ">
         <div className="flex flex-col items-start justify-center gap-4 px-8">
-            <h3 className="text-red-800">PARTNER UNIVERSITIES</h3>
-            <h1 className="text-3xl font-bold font-serif">NMC-Approved Universities in Kyrgyzstan</h1>
-            <p className="text-gray-700/70">All universities listed are recognised by India's NMC and the WHO. EduAbroad holds a direct institutional partnership with Bishkek International Medical Institute.</p>
+            <h3 className="section-eyebrow">PARTNER UNIVERSITIES</h3>
+            <h1 className="section-title">NMC-Approved Universities in Kyrgyzstan</h1>
+            <p className="section-text">All universities listed are recognised by India's NMC and the WHO. EduAbroad holds a direct institutional partnership with Bishkek International Medical Institute.</p>
         </div>
          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 m-8">
 
@@ -308,7 +308,7 @@ const countries = [
               </span>
 
               {/* Title */}
-              <h2 className="text-3xl font-serif text-slate-900">
+              <h2 className="section-subtitle text-slate-900">
                 {university.name}
               </h2>
 
@@ -332,7 +332,7 @@ const countries = [
               </div>
 
               {/* Description */}
-              <p className="mt-6 text-slate-500 leading-8">
+              <p className="mt-6 section-text">
                 {university.description}
               </p>
 
@@ -344,7 +344,7 @@ const countries = [
                     ★ OFFICIAL EDUABROAD DIRECT PARTNERSHIP
                   </h4>
 
-                  <p className="mt-4 text-slate-600 leading-8">
+                  <p className="mt-4 section-text">
                   EduAbroad holds <b>a direct institutional partnership</b> with BIMI — giving students from select states exclusive access to <b>priority seat allocation, dedicated counsellor support, assisted documentation, and on-ground liaison </b>throughout the 6-year program.
                   </p>
 
@@ -374,11 +374,11 @@ const countries = [
 
         </div>
       </div> 
-         <div className="flex flex-col bg-blue-100/40 py-16">
+         <div className="flex flex-col bg-blue-100/40 py-4">
         <div className="flex flex-col items-start justify-center gap-4 px-8">
-            <h3 className="text-red-800">All Destinations</h3>
-            <h1 className="text-3xl font-bold font-serif">Universities Across All 8 Countries We Counsel For</h1>
-            <p className="text-gray-700/70">EduAbroad guides students to NMC-approved, WHO-recognised universities across 8 countries. Here are the institutions we actively counsel for — find the right fit for your profile and budget.</p>
+            <h3 className="section-eyebrow">All Destinations</h3>
+            <h1 className="section-title">Universities Across All 8 Countries We Counsel For</h1>
+            <p className="section-text">EduAbroad guides students to NMC-approved, WHO-recognised universities across 8 countries. Here are the institutions we actively counsel for — find the right fit for your profile and budget.</p>
         </div>
              <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 m-8 gap-2">
 
@@ -412,8 +412,8 @@ const countries = [
 
                 <h3
                   className="
-                    text-2xl
-                    font-serif
+                    text-xl
+                    font-semibold
                     text-slate-900
                   "
                 >
@@ -527,7 +527,7 @@ const countries = [
         ))}
 
       </div>
-      <p className="text-gray-700/70 p-8 ">Not sure which country suits your NEET score and budget? Our counsellors will guide you to the right fit — free of charge. <span className="text-red-800 font-semibold">Book a session →</span></p>
+              <p className="section-text p-8 ">Not sure which country suits your NEET score and budget? Our counsellors will guide you to the right fit — free of charge. <span className="text-red-800 font-semibold">Book a session →</span></p>
          </div>
       </>
     )

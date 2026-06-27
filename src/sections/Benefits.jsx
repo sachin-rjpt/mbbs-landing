@@ -8,9 +8,9 @@
 } from "react-icons/fa";
 export default function Benefits(){
     const card="flex flex-col py-16 px-8 bg-white items-start justify-center gap-4 hover:scale-105 transition-all duration-300";
-    const Symbol="text-2xl text-bold";
-    const heading="text-2xl text-semibold";
-    const para="text-sm text-gray-500";
+    const Symbol="text-2xl font-semibold";
+    const heading="section-card-title";
+    const para="section-text";
 const benefits = [
   {
     id: 1,
@@ -92,11 +92,11 @@ const benefits = [
         <>
        <div className="bg-blue-100/30 p-8">
         <div className="flex flex-col items-start justify-center gap-2 m-8">
-            <h5 className="text-red-800">WHY KYRGYZSTAN</h5>
-            <h1 className="text-3xl text-bold font-serif">Why Kyrgyzstan is our Most Recommended Destination Right Now</h1>
-            <div>
-            <p>Of all the 8 countries we counsel for, Kyrgyzstan consistently offers the best value</p>
-            <p>--NMC-approved,English-medium,and under rupees 25 Lakhs total</p>
+            <h5 className="section-eyebrow">WHY KYRGYZSTAN</h5>
+            <h1 className="section-title">Why Kyrgyzstan is our Most Recommended Destination Right Now</h1>
+            <div className="space-y-1">
+            <p className="section-text">Of all the 8 countries we counsel for, Kyrgyzstan consistently offers the best value</p>
+            <p className="section-text">--NMC-approved,English-medium,and under rupees 25 Lakhs total</p>
             </div>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -132,16 +132,16 @@ const benefits = [
             </div>
         </div>
        </div>
-       <div className="grid grid-cols-2 mx-4 my-16">
-           <div className="flex items-start justify-start flex-col gap-16">
+       <div className="grid sm:grid-col-1 md:grid-cols-2  mx-4 my-8 gap-4">
+           <div className="flex items-center justify-start flex-col gap-4">
             <div className="flex flex-row items-center flex-wrap justify-start gap-4">
-                <h1 className="text-3xl font-bold">KG</h1>
+                <h1 className="text-3xl font-semibold">KG</h1>
                 <div className="flex flex-col items-start justify-center">
-                    <h1 className="text-3xl font-bold">Kyrgyzstan</h1>
-                    <h3 className="text-red-700 font-semibold text-sm">CENTRAL ASIA EDUABROAD PARTNER COUNTRY</h3>
+                    <h1 className="section-title">Kyrgyzstan</h1>
+                    <h3 className="section-eyebrow text-red-700">CENTRAL ASIA EDUABROAD PARTNER COUNTRY</h3>
                 </div>
             </div>
-             <p className="text-gray-700/70">Kyrgyzstan is one of Central Asia's most affordable and welcoming MBBS destinations for Indian students. Located in the heart of Central Asia with the majestic Tian Shan mountains as a backdrop, the country offers a peaceful, student-focused environment. Bishkek — the capital — is a modern, safe city with a large Indian student community, Indian restaurants, and easy connectivity to India.</p>
+             <p className="section-text">Kyrgyzstan is one of Central Asia's most affordable and welcoming MBBS destinations for Indian students. Located in the heart of Central Asia with the majestic Tian Shan mountains as a backdrop, the country offers a peaceful, student-focused environment. Bishkek — the capital — is a modern, safe city with a large Indian student community, Indian restaurants, and easy connectivity to India.</p>
              <div className="grid md:grid-cols-2 grid-cols-1 items-center justify-center">
                {universityHighlights.map((ele)=>(
                 <div key={ele.id} className="flex  flex-col items-center justify-center flex-wrap  gap-2 m-1 border border-gray-200 p-2 hover:shadow-sm transition-all duration-300ms">
@@ -151,14 +151,14 @@ const benefits = [
                ))}
              </div>
              <div className="flex items-center justify-center  border-l-red-700 border-l-4 bg-red-900/10 p-4 mr-8 ">
-                <p><span className="text-red-700 mr-2">Bottom line</span>Kyrgyzstan delivers the NMC-approved, English-medium MBBS experience at the lowest total cost of any reputable destination — making it the smartest choice for budget-conscious Indian families who refuse to compromise on quality.</p>
+                <p className="section-text"><span className="section-strong text-red-700 mr-2">Bottom line</span>Kyrgyzstan delivers the NMC-approved, English-medium MBBS experience at the lowest total cost of any reputable destination — making it the smartest choice for budget-conscious Indian families who refuse to compromise on quality.</p>
              </div>
            </div>
-           <div className="flex flex-col gap-2 items-center justify-center ">
-             <h2 className="text-red-700 font-semibold">What Makes KYRGYZSTAN STAND OUT</h2>
+           <div className="flex flex-col  items-center justify-center ">
+             <h2 className="section-subtitle text-red-700">What Makes KYRGYZSTAN STAND OUT</h2>
              <div>
                 {benefits.map((ele)=>(
-                    <div className="flex flex-row gap-4 items-center justify-center m-4 border-b-1 p-4" key={ele.id}>
+                    <div className="flex flex-row gap-2 items-center justify-center m-4 border-b-1 p-4" key={ele.id}>
                       <ele.icon className="font-bold text-3xl"/>
                        <div>
                         <h2 className="font-semibold">{ele.title}</h2>

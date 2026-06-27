@@ -98,22 +98,24 @@ const handleSubmit=(e)=>{
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Left */}
           <div>
-            <p className="text-xs tracking-[3px] uppercase text-red-300 font-medium mb-8">
+            <p className="section-eyebrow mb-8 text-red-300">
               {data.badge}
             </p>
 
-            <h2 className="font-serif text-5xl lg:text-7xl leading-none">
+            <h2 className="section-title text-white text-4xl lg:text-6xl">
+              <span className="text-white">
               {data.heading.line1}
+              </span>
               <span className="block italic text-[#D11616] mt-2">
                 {data.heading.highlight}
               </span>
             </h2>
 
-            <p className="mt-10 text-lg leading-9 text-slate-300">
+            <p className="mt-10 section-text text-slate-300">
               {data.description}
             </p>
 
-            <p className="mt-8 text-slate-400">
+            <p className="mt-8 text-sm md:text-base text-slate-400">
               {data.info}
             </p>
           </div>
@@ -161,11 +163,11 @@ const handleSubmit=(e)=>{
       <div className="border-t border-[#26385F]">
         <div className="max-w-7xl mx-auto px-6 lg:px-10 py-10 flex flex-col lg:flex-row justify-between gap-8">
           <div>
-            <h3 className="font-serif text-3xl">
-              {data.footer.company}
+            <h3 className="section-subtitle">
+              <span className="text-white">{data.footer.company}</span>
             </h3>
 
-            <p className="text-slate-400 mt-3">
+            <p className="text-slate-400 mt-3 text-sm md:text-base">
               {data.footer.tagline}
             </p>
           </div>

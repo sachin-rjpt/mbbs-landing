@@ -75,21 +75,21 @@ export default function Footer() {
 
           {/* Top */}
           <div className="mb-14">
-            <h2 className="text-5xl md:text-6xl font-black">
+            <h2 className="text-4xl md:text-5xl font-semibold font-serif">
               <span className="text-black">Edu</span>
               <span className="text-[#B21D34]">Abroad</span>
             </h2>
 
-            <p className="text-lg mt-1 text-gray-700">
+            <p className="text-base md:text-lg mt-1 text-gray-700">
               {footerData.logo.subtitle}
             </p>
 
             <div className="mt-6">
-              <p className="text-2xl text-gray-800">
+              <p className="text-xl text-gray-800">
                 {footerData.association.text}
               </p>
 
-              <h3 className="text-5xl font-serif mt-2">
+              <h3 className="text-3xl md:text-4xl font-serif mt-2">
                 {footerData.association.partner}
               </h3>
             </div>
@@ -99,7 +99,7 @@ export default function Footer() {
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-10">
             {footerData.columns.map((column) => (
               <div key={column.title}>
-                <h4 className="text-2xl font-serif mb-6">
+                <h4 className="text-xl font-semibold mb-6 text-slate-900">
                   {column.title}
                 </h4>
 
@@ -107,7 +107,7 @@ export default function Footer() {
                   {column.links.map((link) => (
                     <li
                       key={link}
-                      className="text-lg text-gray-700 hover:text-[#B21D34] cursor-pointer transition-colors"
+                      className="text-sm md:text-base text-gray-700 hover:text-[#B21D34] cursor-pointer transition-colors"
                     >
                       {link}
                     </li>
@@ -119,14 +119,14 @@ export default function Footer() {
 
           {/* CTA */}
           <div className="flex justify-center lg:justify-end mt-14">
-            <button className="bg-[#B21D34] text-white px-10 py-4 rounded-2xl text-xl font-medium hover:opacity-90 transition">
+            <button className="bg-[#B21D34] text-white px-10 py-4 rounded-2xl text-base md:text-lg font-semibold hover:opacity-90 transition">
               {footerData.ctaButton}
             </button>
           </div>
 
           {/* Contact */}
           <div className="border-t border-[#B21D34]/40 mt-10 pt-6">
-            <p className="text-center text-[#B21D34] text-lg">
+            <p className="text-center text-[#B21D34] text-sm md:text-base">
               Contact : {footerData.contactInfo.phone}
               <span className="mx-3">|</span>
               Email : {footerData.contactInfo.email}
