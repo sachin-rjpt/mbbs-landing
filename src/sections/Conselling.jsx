@@ -1,191 +1,155 @@
 import { useState } from "react";
-import {toast} from "sonner";
-export default function Counselling() {
-const data = {
-  badge: "FREE COUNSELLING — MBBS ABROAD",
+import {
+  FaUser,
+  FaPhoneAlt,
+  FaEnvelope,
+  FaGlobeAsia,
+  FaPaperPlane,
+  FaCheckCircle,
+} from "react-icons/fa";
 
-  heading: {
-    line1: "Begin Your Journey of",
-    highlight: "Becoming a Global Citizen as a Doctor",
-  },
+const countries=[
+"Kyrgyzstan","Russia","Kazakhstan","Georgia","China","Italy","Poland","Uzbekistan"
+];
 
-  description:
-    "Our counsellors — alumni of Harvard, Cambridge & IIMs — have guided thousands of students to NMC-approved medical universities across 8 countries. Students from Uttar Pradesh, Madhya Pradesh, and Uttarakhand get direct priority access to Bishkek International Medical Institute through our exclusive partnership. Your first session is completely free.",
+export default function Counselling(){
 
-  highlights: [
-    "Uttar Pradesh",
-    "Madhya Pradesh",
-    "Uttarakhand",
-  ],
-
-  info: "📍 Serving students across India | WhatsApp response within 2 hours",
-
-  formFields: [
-    {
-      name: "studentName",
-      placeholder: "Student Name",
-      type: "text",
-    },
-    {
-      name: "phone",
-      placeholder: "Phone / WhatsApp",
-      type: "tel",
-    },
-    {
-      name: "neetScore",
-      placeholder: "NEET Score",
-      type: "text",
-    },
-    {
-      name: "city",
-      placeholder: "City / State",
-      type: "text",
-    },
-    {
-      name: "country",
-      placeholder: "Preferred Country / University",
-      type: "text",
-      fullWidth: true,
-    },
-  ],
-
-  buttonText: "BOOK FREE COUNSELLING FOR MBBS ABROAD →",
-
-  footer: {
-    company: "EduAbroad",
-    tagline:
-      "Harvard–Cambridge & IIM Alumni Run · Official Cambridge IELTS Learning Partner",
-
-    stats: [
-      "2,000+ Universities",
-      "30+ Countries",
-      "1,50,000+ Courses",
-      "20+ Years Experience",
-    ],
-
-    copyright:
-      "© 2026 EduAbroad. All rights reserved.",
-  },
-};
-const  [formData,setFormData]=useState({
-    studentName:"",
-    phone:"",
-    neetScore:"",
-    city:"",
-    country:"",
+const [form,setForm]=useState({
+name:"",
+phone:"",
+email:"",
+country:"",
+message:""
 });
+
 const handleChange=(e)=>{
-    const {name,value}=e.target;
-    setFormData((prev)=>({
-      ...prev,
-      [name]:value,
-    }));
-}
-const handleSubmit=(e)=>{
-    e.preventDefault();
-    // console.log(formData);
-   toast.success("Counselling request submitted successfully");
-    setFormData(() => ({
-      studentName: "",
-      phone: "",
-      neetScore: "",
-      city: "",
-      country: "",
-    }));
+setForm({...form,[e.target.name]:e.target.value});
 };
-  return (
-    <section className="bg-[#0F214D] text-white">
-      <div className="max-w-7xl mx-auto px-6 lg:px-10 py-20">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
-          {/* Left */}
-          <div>
-            <p className="section-eyebrow mb-8 text-red-300">
-              {data.badge}
-            </p>
 
-            <h2 className="section-title text-white text-4xl lg:text-6xl">
-              <span className="text-white">
-              {data.heading.line1}
-              </span>
-              <span className="block italic text-[#D11616] mt-2">
-                {data.heading.highlight}
-              </span>
-            </h2>
+const handleSubmit=(e)=>{
+e.preventDefault();
+console.log(form);
+// TODO: API Call
+};
 
-            <p className="mt-10 section-text text-slate-300">
-              {data.description}
-            </p>
+return(
+<section id="counselling" className="bg-gradient-to-br from-slate-950 via-blue-950 to-slate-900 py-20 lg:py-28">
+<div className="max-w-7xl mx-auto px-6 lg:px-10">
 
-            <p className="mt-8 text-sm md:text-base text-slate-400">
-              {data.info}
-            </p>
-          </div>
+<div className="grid lg:grid-cols-2 gap-14 items-center">
 
-          {/* Right Form */}
-          <div>
-            <form className="space-y-4" onSubmit={handleSubmit}>
-              <div className="grid md:grid-cols-2 gap-4">
-                {data.formFields.slice(0, 4).map((field) => (
-                  <input
-                    key={field.name}
-                    name={field.name}
-                    type={field.type}
-                    placeholder={field.placeholder}
-                    value={formData[field.name] ?? ""}
-                    onChange={handleChange}
-                    className="w-full bg-[#22335E] border border-[#3B4A71] px-5 py-5 text-white placeholder:text-slate-400 outline-none focus:border-red-500"
-                    required
-                  />
-                ))}
-              </div>
+<div>
+<span className="inline-flex rounded-full border border-cyan-400/20 bg-cyan-500/10 px-4 py-2 text-sm font-semibold text-cyan-300">
+FREE MBBS COUNSELLING
+</span>
 
-              <input
-                name={data.formFields[4].name}
-                type="text"
-                placeholder={data.formFields[4].placeholder}
-                value={formData[data.formFields[4].name] ?? ""}
-                onChange={handleChange}
-                required
-                className="w-full bg-[#22335E] border border-[#3B4A71] px-5 py-5 text-white placeholder:text-slate-400 outline-none focus:border-red-500"
-              />
+<h2 className="mt-6 text-4xl md:text-6xl font-black text-white leading-tight">
+Let's Plan Your
+<span className="block text-cyan-400">Medical Career</span>
+</h2>
 
-              <button
-                type="submit"
-                className="w-full bg-[#C70000] hover:bg-[#A80000] transition-all duration-300 py-5 text-sm md:text-base font-semibold tracking-[2px] uppercase"
-              >
-                {data.buttonText}
-              </button>
-            </form>
-          </div>
-        </div>
-      </div>
+<p className="mt-6 text-lg text-slate-300 leading-8">
+Get personalized guidance from our admission experts. We'll help you choose the right country, university and budget.
+</p>
 
-      {/* Footer */}
-      <div className="border-t border-[#26385F]">
-        <div className="max-w-7xl mx-auto px-6 lg:px-10 py-10 flex flex-col lg:flex-row justify-between gap-8">
-          <div>
-            <h3 className="section-subtitle">
-              <span className="text-white">{data.footer.company}</span>
-            </h3>
+<div className="mt-10 space-y-5">
+{[
+"100% Free Counselling",
+"NMC Approved Universities",
+"Visa & Documentation Support",
+"No Donation Policy"
+].map(item=>(
+<div key={item} className="flex items-center gap-3 text-slate-200">
+<FaCheckCircle className="text-cyan-400"/>
+<span>{item}</span>
+</div>
+))}
+</div>
+</div>
 
-            <p className="text-slate-400 mt-3 text-sm md:text-base">
-              {data.footer.tagline}
-            </p>
-          </div>
+<div className="rounded-[32px] border border-white/10 bg-white/10 backdrop-blur-xl p-8 shadow-2xl">
 
-          <div className="lg:text-right">
-            <div className="flex flex-wrap justify-start lg:justify-end gap-3 text-slate-300">
-              {data.footer.stats.map((item) => (
-                <span key={item}>{item}</span>
-              ))}
-            </div>
+<h3 className="text-3xl font-bold text-white">
+Book Free Consultation
+</h3>
 
-            <p className="text-slate-500 mt-4">
-              {data.footer.copyright}
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
+<p className="mt-2 text-slate-300">
+Our counsellor will contact you shortly.
+</p>
+
+<form onSubmit={handleSubmit} className="mt-8 space-y-5">
+
+<div className="relative">
+<FaUser className="absolute left-4 top-1/2 -translate-y-1/2 text-cyan-400"/>
+<input
+name="name"
+value={form.name}
+onChange={handleChange}
+placeholder="Full Name"
+className="w-full rounded-2xl border border-white/10 bg-white/5 py-4 pl-12 pr-4 text-white placeholder:text-slate-400 outline-none focus:border-cyan-400"
+/>
+</div>
+
+<div className="relative">
+<FaPhoneAlt className="absolute left-4 top-1/2 -translate-y-1/2 text-cyan-400"/>
+<input
+name="phone"
+value={form.phone}
+onChange={handleChange}
+placeholder="Phone Number"
+className="w-full rounded-2xl border border-white/10 bg-white/5 py-4 pl-12 pr-4 text-white placeholder:text-slate-400 outline-none focus:border-cyan-400"
+/>
+</div>
+
+<div className="relative">
+<FaEnvelope className="absolute left-4 top-1/2 -translate-y-1/2 text-cyan-400"/>
+<input
+type="email"
+name="email"
+value={form.email}
+onChange={handleChange}
+placeholder="Email Address"
+className="w-full rounded-2xl border border-white/10 bg-white/5 py-4 pl-12 pr-4 text-white placeholder:text-slate-400 outline-none focus:border-cyan-400"
+/>
+</div>
+
+<div className="relative">
+<FaGlobeAsia className="absolute left-4 top-1/2 -translate-y-1/2 text-cyan-400"/>
+<select
+name="country"
+value={form.country}
+onChange={handleChange}
+className="w-full appearance-none rounded-2xl border border-white/10 bg-white/5 py-4 pl-12 pr-4 text-white outline-none focus:border-cyan-400"
+>
+<option value="" className="text-black">Preferred Country</option>
+{countries.map(c=><option key={c} value={c} className="text-black">{c}</option>)}
+</select>
+</div>
+
+<textarea
+rows="4"
+name="message"
+value={form.message}
+onChange={handleChange}
+placeholder="Tell us about your requirements..."
+className="w-full rounded-2xl border border-white/10 bg-white/5 p-4 text-white placeholder:text-slate-400 outline-none focus:border-cyan-400 resize-none"
+/>
+
+<button
+type="submit"
+className="flex w-full items-center justify-center gap-2 rounded-full bg-gradient-to-r from-cyan-500 to-blue-600 py-4 font-semibold text-white transition hover:scale-[1.02]"
+>
+Submit Enquiry
+<FaPaperPlane/>
+</button>
+
+</form>
+
+</div>
+
+</div>
+
+</div>
+</section>
+);
 }

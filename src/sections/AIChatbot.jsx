@@ -1,128 +1,104 @@
-import { useEffect, useRef, useState } from "react";
-import { SlArrowLeft } from "react-icons/sl";
-import { GoXCircle } from "react-icons/go";
-import { IoSend } from "react-icons/io5";
-import { chatbotTree } from "../data/Chatbot/chatbotTree";
-import { useMemo } from "react";
-import { LuBotMessageSquare } from "react-icons/lu";
+import {useEffect,useMemo,useRef,useState} from "react";
+import {LuBotMessageSquare} from "react-icons/lu";
+import {GoX} from "react-icons/go";
+import {FaRobot,FaCheckCircle} from "react-icons/fa";
+import {IoSend} from "react-icons/io5";
+import {chatbotTree} from "../data/Chatbot/chatbotTree";
+
 export default function AIChatbot(){
-    const [open,setOpen]=useState(false);
-    const [node,setNode]=useState(chatbotTree.home);
-    const [chat,setChat]=useState([]);
-    const [count,setCount]=useState(0);
-    const bottomRef=useRef(null);
-    useEffect(()=>{
-     setChat([
-      {
-        id:0,
-        sender: "ai",
-        title: node.title,
-        message: node.message,
-        options: node.options,
-      },
-     ]);
-    }, []);
-    useEffect(()=>{
-      bottomRef.current?.scrollIntoView({
-        behavior:"smooth",
-      });
-    },[chat]);
-  const lastAiId = useMemo(() => {
-  return [...chat]
-    .reverse()
-    .find((msg) => msg.sender === "ai")?.id;
-}, [chat]);
-    const handleReply = (opn) => {
-  const nextNode = chatbotTree[opn.next];
-  setChat((prev) => [
-    ...prev,
-    // User message
-    {
-      id: count + 1,
-      sender: "user",
-      title: "",
-      message: opn.next,
-      options: [],
-    },
+const [open,setOpen]=useState(false);
+const [node]=useState(chatbotTree.home);
+const [chat,setChat]=useState([]);
+const bottomRef=useRef(null);
 
-    // AI message
-    {
-      id: count + 2,
-      sender: "ai",
-      title: nextNode.title,
-      message: nextNode.message,
-      options: nextNode.options,
-    },
-  ]);
+useEffect(()=>{
+setChat([{id:0,sender:"ai",title:node.title,message:node.message,options:node.options}]);
+},[]);
 
-  setCount((prev) => prev + 2);
+useEffect(()=>bottomRef.current?.scrollIntoView({behavior:"smooth"}),[chat]);
 
-  setNode(nextNode);
+const lastAiId=useMemo(()=>[...chat].reverse().find(x=>x.sender==="ai")?.id,[chat]);
+
+const handleReply=(opn)=>{
+const next=chatbotTree[opn.next];
+setChat(prev=>[
+...prev,
+{id:Date.now(),sender:"user",message:opn.label},
+{id:Date.now()+1,sender:"ai",title:next.title,message:next.message,options:next.options}
+]);
 };
-    return(
-        <>
-        {!open?
-          // <div onClick={()=>setOpen(!open)} className="fixed flex flex-col items-center top-1/2 right-0 bg-white py-8 z-[9999] rounded-full">
-          //    {/* <h2 onClick={()=>setOpen(!open)}><SlArrowLeft size={20}/></h2> */}
-          //    <h2 className="font-mono p-2">Ask Que?</h2>
-          // </div>
-          <div onClick={()=>setOpen(true)} className="fixed bottom-6 right-6  flex  items-center  gap-3
-    bg-gradient-to-r
-    from-sky-600
-    to-blue-700
-    px-5
-    py-3
-    rounded-full
-    shadow-2xl
-    hover:scale-105
-    transition-all
-    duration-300
-    cursor-pointer
-    z-[9999]
-    "><LuBotMessageSquare size={28} className="text-white"/>
 
-<span className="text-white font-semibold">
-Ask AI
-</span>
-
+return<>
+{!open?
+<button onClick={()=>setOpen(true)} className="fixed bottom-6 right-6 z-[999] group">
+<div className="absolute inset-0 rounded-full bg-cyan-500/30 animate-ping"/>
+<div className="relative h-16 w-16 rounded-full bg-gradient-to-br from-cyan-500 to-blue-700 shadow-2xl flex items-center justify-center text-white group-hover:scale-110 transition">
+<LuBotMessageSquare size={30}/>
 </div>
-          :<div className="fixed h-[60%] w-[70%]  top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2  bg-gradient-to-r from-sky-300 via-sky-200 to-blue-100 rounded-2xl overflow-hidden flex flex-col ">
-            <div className="flex flex-row items-center justify-center bg-gradient-to-r from-sky-600 to-blue-700 text-white  font-mono">
-              <h1>AI Assistant</h1>
-              <GoXCircle onClick={()=>setOpen(!open)} className="absolute right-1"/>
-            </div>
-            <div className="flex flex-row flex-wrap overflow-y-auto scrollbar-thin">
-               {chat.map((e)=>(
-                e.sender==='ai'?
-                <div key={e.id} className="flex items-center justify-start">
-                <div className="w-[80%] border border-gray-200 shadow-sm bg-white/80 backdrop-blur-sm border border-white/50 text-slate-800 rounded-xl text-xs p-2 m-2">
-                <h3 className="font-semibold">{e.title}</h3>
-                 <p className="text-gray-700">{e.message}</p>
-                 <div>
-                  <ul>
-                    {e.options.map((opn,idx)=>(
-                      <li onClick={()=>{ if(e.id===lastAiId){handleReply(opn)}}} key={idx}  className={`border border-gray-200 my-1 p-2 rounded-lg transition ${e.id === lastAiId ? "cursor-pointer hover:bg-sky-100": "pointer-events-none opacity-50"}`}>{opn.label} </li>
-                    ))}
-                  </ul>
-                 </div>
-                </div>
-                </div>
-                :<div className="flex w-full text-center justify-end" key={e.id}>
-                  <div className="w-[80%] border border-gray-200 shadow-sm bg-gray-100 rounded-xl text-xs p-2 m-2">
-                    {e.message}
-                  </div>
-                </div>
-               ))}
-               <div ref={bottomRef}></div>
-            </div>
-            {/* <div className="absolute bottom-1 px-2 py-1 w-full bg-gray-100 flex justify-center items-center">
-             <form className="flex flex-row w-full items-center justify-center gap-2" onSubmit={handleSubmit}>
-              <input value={message}  type="text" className=" w-[80%] border p-1 rounded-xl text-sm" placeholder="Ask me "/>
-              <IoSend size={25}/>
-             </form>
-            </div> */}
-          </div>
-        }
-       </>
-    );
+</button>
+:
+<div className="fixed z-[999] bottom-4 right-4 w-[420px] max-w-[96vw] h-[700px] max-h-[92vh] rounded-[30px] overflow-hidden bg-white shadow-[0_30px_80px_rgba(0,0,0,.35)] flex flex-col">
+
+<div className="bg-gradient-to-r from-slate-900 via-blue-900 to-cyan-600 px-6 py-4 flex justify-between items-center">
+<div className="flex items-center gap-3">
+<div className="h-11 w-11 rounded-full bg-white/20 flex items-center justify-center text-white">
+<FaRobot/>
+</div>
+<div>
+<h2 className="font-bold text-white">EduAbroad AI</h2>
+<p className="text-xs text-cyan-200 flex items-center gap-1"><span className="h-2 w-2 rounded-full bg-green-400"/>Online</p>
+</div>
+</div>
+<button onClick={()=>setOpen(false)} className="text-white text-2xl"><GoX/></button>
+</div>
+
+<div className="flex-1 overflow-y-auto bg-slate-50 p-5 space-y-6 scrollbar-thin scrollbar-thumb-cyan-400">
+
+<div className="rounded-3xl bg-gradient-to-r from-cyan-500 to-blue-600 p-5 text-white">
+<h3 className="font-bold text-xl">👋 Welcome</h3>
+<p className="mt-2 text-cyan-50">Ask about MBBS fees, countries, universities, visa and admission process.</p>
+</div>
+
+{chat.map(msg=>msg.sender==="ai"?
+<div key={msg.id} className="flex gap-3">
+<div className="h-10 w-10 rounded-full bg-gradient-to-br from-cyan-500 to-blue-600 text-white flex items-center justify-center"><FaRobot/></div>
+<div className="max-w-[80%]">
+<div className="rounded-3xl rounded-tl-md bg-white p-5 shadow">
+<h4 className="font-bold text-slate-800">{msg.title}</h4>
+<p className="mt-2 text-slate-600">{msg.message}</p>
+</div>
+{msg.options?.length>0&&(
+<div className="mt-3 flex flex-wrap gap-2">
+{msg.options.map((o,i)=>(
+<button key={i} disabled={msg.id!==lastAiId} onClick={()=>handleReply(o)}
+className="rounded-full border border-cyan-200 bg-cyan-50 px-4 py-2 text-sm hover:bg-cyan-500 hover:text-white transition disabled:opacity-40">
+{o.label}
+</button>
+))}
+</div>)}
+</div>
+</div>
+:
+<div key={msg.id} className="flex justify-end">
+<div className="max-w-[75%] rounded-3xl rounded-tr-md bg-gradient-to-r from-cyan-500 to-blue-600 text-white p-4 shadow">
+{msg.message}
+</div>
+</div>
+)}
+<div ref={bottomRef}/>
+</div>
+
+<div className="border-t bg-white p-4">
+<div className="flex items-center rounded-full border border-slate-200 px-4 py-3">
+<input disabled placeholder="Choose an option above..." className="flex-1 outline-none text-slate-500"/>
+<button className="text-cyan-600"><IoSend size={22}/></button>
+</div>
+<div className="mt-3 flex items-center gap-2 text-xs text-slate-500">
+<FaCheckCircle className="text-green-500"/>
+Official EduAbroad Assistant
+</div>
+</div>
+
+</div>}
+</>;
 }

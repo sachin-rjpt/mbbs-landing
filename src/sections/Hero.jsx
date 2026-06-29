@@ -1,55 +1,149 @@
-import { MdHandshake } from 'react-icons/md';
-import { FaRupeeSign } from "react-icons/fa";
-import { scrollToSection } from '../utils/scrollToSection';
-export default function Hero(){
-    const cardStyle="bg-white/10 p-8 hover:bg-white/30 transition-all duration-300";
-    const countryStyle=" flex items-center justify-center flex-wrap bg-red-900/10  border text-white/70 text-xs m-1 px-2 w-30"
-    const cardh="text-3xl font-semibold text-white"
-    const cardspan="text-red-200"
-    const cardp="text-sm md:text-base text-white/70"
-    return (
-        <div className="w-full grid grid-cols-1 md:grid-cols-2 p-8 pt-16 bg-[#07144D]">
-           <div className="flex flex-col   gap-4">
-            <h4 className="section-eyebrow text-red-300">EDUABROAD -- MBBS -- ABROAD COUNSELLING . 8 COUNTRIES</h4>
-            <h1 className="text-5xl font-serif text-white max-w-xl"><i className="text-red-200">MBBS in Kyrgyzstan</i> & Beyond</h1>
-            <p className="section-text text-white/80 max-w-2xl">We counsel students for MBBS across 8 countries — Russia, Georgia, Italy, Poland, China, Kazakhstan, Uzbekistan, and Kyrgyzstan. We hold a direct institutional partnership with Bishkek International Medical Institute, giving students from UP, MP & Uttarakhand priority access.</p>
-            <div className="flex flex-wrap items-center mx-1 border p-4 border-red-800 border-l-8 bg-red-800/20">
-                <div className='flex justify-center items-center m-4 text-3xl text-yellow-100'><MdHandshake/></div>
-                <div className="flex flex-col  flex-wrap gap-2">
-                    <h4 className="section-eyebrow text-red-300">*OFFICIAL EDUABROAD PARTNER UNIVERSITY</h4>
-                    <h3 className="section-card-title"><span className='text-white'>Bishkek International Medical Institute </span></h3>
-                    <div className='flex flex-col md:flex-row'>
-                     <div className={countryStyle}>UTTAR PRADESH</div>
-                     <div className={countryStyle}>MADHYA PRADESH</div>
-                     <div className={countryStyle}>UTTARAKHAND</div>
-                     </div>
-                </div>
+import {
+  FaArrowRight,
+  FaCheckCircle,
+  FaGlobeAsia,
+  FaUniversity,
+  FaUserGraduate,
+} from "react-icons/fa";
+import {
+  MdWorkspacePremium,
+  MdOutlineHealthAndSafety,
+} from "react-icons/md";
+import doctor from "../assets/images/doctor.png";
+import { scrollToSection } from "../utils/scrollToSection";
+
+const trustBadges = [
+  "NMC Approved",
+  "No Donation",
+  "Visa Assistance",
+  "Official Partner",
+];
+
+const countries = [
+  "🇰🇬 Kyrgyzstan",
+  "🇷🇺 Russia",
+  "🇰🇿 Kazakhstan",
+  "🇬🇪 Georgia",
+  "🇨🇳 China",
+  "🇮🇹 Italy",
+];
+
+const stats = [
+  { value: "₹25L", label: "Max Total Cost", icon: <FaUniversity /> },
+  { value: "4+", label: "Partner Universities", icon: <MdOutlineHealthAndSafety /> },
+  { value: "6 Years", label: "Program", icon: <FaUserGraduate /> },
+  { value: "₹0", label: "Donation Fee", icon: <MdWorkspacePremium /> },
+];
+
+const cards = [
+  { value: "₹25L", text: "Maximum Cost", pos: "-top-8 left-6 hidden lg:block" },
+  { value: "8", text: "Countries", pos: "bottom-20 -left-6 hidden lg:block" },
+  { value: "4+", text: "Universities", pos: "bottom-6 -right-14 hidden lg:block" },
+  { value: "100%", text: "Visa Guidance", pos: "top-20 -right-6 hidden lg:block" },
+];
+
+export default function Hero() {
+  return (
+    <section className="relative overflow-hidden bg-gradient-to-br from-slate-950 via-blue-950 to-slate-900">
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff08_1px,transparent_1px),linear-gradient(to_bottom,#ffffff08_1px,transparent_1px)] bg-[size:70px_70px]" />
+      <div className="absolute -left-24 top-0 h-80 w-80 rounded-full bg-cyan-500/20 blur-[120px]" />
+      <div className="absolute bottom-0 right-0 h-96 w-96 rounded-full bg-blue-500/20 blur-[140px]" />
+
+      <div className="relative mx-auto max-w-7xl px-6 lg:px-10 py-16 lg:py-24">
+        <div className="grid lg:grid-cols-2 gap-16 items-center">
+          <div>
+            <div className="inline-flex items-center gap-2 rounded-full border border-cyan-400/30 bg-cyan-400/10 px-4 py-2 text-cyan-200 text-sm">
+              <FaGlobeAsia />
+              Official MBBS Admission Partner
             </div>
-            <div className="flex justify-center m-4 gap-4">
-                <div className="flex justify-center items-center bg-red-800 text-white p-4 hover:scale-105 transition-all duration-300" onClick={()=>scrollToSection("counselling")}>GET FREE COUNSELLING</div>
-                <div className="flex justify-center items-center border p-4 text-white opacity-80 hover:scale-105 transition-all duration-300" onClick={()=>scrollToSection("universities")}>VIEW UNIVERSITIES</div>
+
+            <h1 className="mt-6 text-4xl sm:text-5xl lg:text-7xl font-black leading-tight text-white">
+              Become a{" "}
+              <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
+                Doctor
+              </span>
+              <br />
+              Without Paying
+              <br />
+              Donation Fees
+            </h1>
+
+            <p className="mt-6 text-slate-300 text-base sm:text-lg max-w-xl leading-8">
+              Study MBBS in top universities across 8 countries with complete admission,
+              visa and travel support from experienced counsellors.
+            </p>
+
+            <div className="mt-8 flex flex-col sm:flex-row gap-4">
+              <button
+                onClick={() => scrollToSection("counselling")}
+                className="rounded-full bg-gradient-to-r from-cyan-500 to-blue-600 px-8 py-4 text-white font-semibold flex justify-center items-center gap-2 hover:scale-105 transition"
+              >
+                Get Free Counselling <FaArrowRight />
+              </button>
+
+              <button
+                onClick={() => scrollToSection("universities")}
+                className="rounded-full border border-white/20 bg-white/5 backdrop-blur px-8 py-4 text-white hover:bg-white/10 transition"
+              >
+                Explore Universities
+              </button>
             </div>
-           </div>
-           <div className="flex justify-center items-center ">
-            <div className="grid grid-cols-2 gap-0.5  p-4">
-                <div className={cardStyle}>
-                    <h2 className={`${cardh} flex items-start`}><FaRupeeSign/>25<span className={cardspan}>L</span></h2>
-                    <p className={cardp}>MAX. TOTAL COST (6YRS) </p>
-                    </div>
-                <div className={cardStyle}>
-                    <h2 className={cardh}>4<span className={cardspan}>+</span></h2>
-                    <p className={cardp}>NMC- APPROVED UNIVERSITIES</p>
+
+            <div className="mt-8 flex flex-wrap gap-3">
+              {trustBadges.map((b) => (
+                <div key={b} className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-slate-200 flex items-center gap-2">
+                  <FaCheckCircle className="text-cyan-400" />
+                  {b}
                 </div>
-                <div className={cardStyle}>
-                    <h2 className={cardh}>6<span className={cardspan}>yr</span></h2>
-                    <p className={cardp}>FULL PROGRAM DURATION</p>
-                    </div>
-                <div className={cardStyle}>
-                    <h2 className={`${cardh} flex items-start`}><FaRupeeSign/><span className={cardspan}>0</span></h2>
-                    <p className={cardp}>DONATION / CAPITATION FEES</p>
-                </div>
+              ))}
             </div>
-           </div>
+
+            <div className="mt-8 flex flex-wrap gap-3">
+              {countries.map((c) => (
+                <span key={c} className="rounded-full bg-cyan-500/10 border border-cyan-400/20 px-4 py-2 text-cyan-100 text-sm">
+                  {c}
+                </span>
+              ))}
+            </div>
+
+            <div className="mt-10 rounded-3xl border border-white/10 bg-white/5 backdrop-blur-xl p-6">
+              <div className="flex gap-4">
+                <div className="h-14 w-14 rounded-2xl bg-cyan-500/20 flex items-center justify-center">
+                  <MdWorkspacePremium className="text-cyan-400 text-3xl"/>
+                </div>
+                <div>
+                  <p className="text-cyan-300 uppercase text-xs tracking-widest">Official Partner</p>
+                  <h3 className="text-white text-xl font-bold mt-1">Bishkek International Medical Institute</h3>
+                  <p className="text-slate-300 mt-2">Priority admissions for students from UP, MP & Uttarakhand.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="relative flex justify-center items-center pl-8 lg:pl-16">
+            <div className="absolute h-80 w-80 rounded-full bg-cyan-400/20 blur-[120px]" />
+            <div className="relative">
+              <img src={doctor} alt="Doctor" className="relative z-10 w-[280px] md:w-[360px] lg:w-[390px] object-contain" />
+              {cards.map(card=>(
+                <div key={card.value} className={`absolute ${card.pos} rounded-3xl border border-white/10 bg-white/10 backdrop-blur-xl px-5 py-4`}>
+                  <h3 className="text-3xl font-bold text-white">{card.value}</h3>
+                  <p className="text-slate-300 text-sm">{card.text}</p>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
-    )
+
+        <div className="mt-20 grid grid-cols-2 lg:grid-cols-4 rounded-3xl overflow-hidden border border-white/10 bg-white/5 backdrop-blur-xl">
+          {stats.map((s)=>(
+            <div key={s.label} className="p-8 border border-white/10 hover:bg-white/10 transition">
+              <div className="text-cyan-400 text-3xl">{s.icon}</div>
+              <h3 className="text-white text-4xl font-black mt-4">{s.value}</h3>
+              <p className="text-slate-300 mt-2">{s.label}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
 }
