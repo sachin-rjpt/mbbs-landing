@@ -9,7 +9,7 @@ import {
   MdWorkspacePremium,
   MdOutlineHealthAndSafety,
 } from "react-icons/md";
-import doctor from "../assets/images/doctor.png";
+import doctor from "../assets/images/doctor.PNG";
 import { scrollToSection } from "../utils/scrollToSection";
 
 const trustBadges = [
