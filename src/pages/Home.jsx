@@ -10,24 +10,40 @@ import Hero from "../sections/Hero";
 import SuccessStories from "../sections/SuccessStories";
 import Universities from "../sections/Universities";
 import WhyChooseUs from "../sections/WhyChooseUs";
+import Navbar from "../components/Navbar";
+import ScrollProgress from "../components/ScrollProgress";
 export default function Home(){
     return(
         <>  
+        <ScrollProgress/>
+          <Navbar/>
            <section id="hero">
             <Hero/>
             </section>
+            <section id="why-choose-us">
             <WhyChooseUs/>
+            </section>
+            <span id="countries">
             <Countries/>
-            <section id="process">
+            </span>
+            <section id="admission-process">
             <AdmissionProcess/>
             </section>
+            <section id="universities">
             <Universities/>
+            </section>
+            <section id="fee-scholarship">
             <FeeScholarship/>
+            </section>
+            <section id="success-stories">
             <SuccessStories/>
+            </section>
             <section id="faq">
             <FAQ/>
             </section>
+            <section id="counselling">
             <Counselling/>
+            </section>
             <Footer/>
             <FloatingButtons/>
             <AIChatbot/>
