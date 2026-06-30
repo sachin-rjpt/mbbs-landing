@@ -11,37 +11,14 @@ import {
 } from "react-icons/md";
 import doctor from "../assets/images/doctor.PNG";
 import { scrollToSection } from "../utils/scrollToSection";
-
-const trustBadges = [
-  "NMC Approved",
-  "No Donation",
-  "Visa Assistance",
-  "Official Partner",
-];
-
-const countries = [
-  "🇰🇬 Kyrgyzstan",
-  "🇷🇺 Russia",
-  "🇰🇿 Kazakhstan",
-  "🇬🇪 Georgia",
-  "🇨🇳 China",
-  "🇮🇹 Italy",
-];
-
-const stats = [
-  { value: "₹25L", label: "Max Total Cost", icon: <FaUniversity /> },
-  { value: "4+", label: "Partner Universities", icon: <MdOutlineHealthAndSafety /> },
-  { value: "6 Years", label: "Program", icon: <FaUserGraduate /> },
-  { value: "₹0", label: "Donation Fee", icon: <MdWorkspacePremium /> },
-];
-
-const cards = [
-  { value: "₹25L", text: "Maximum Cost", pos: "-top-8 left-6 hidden lg:block" },
-  { value: "8", text: "Countries", pos: "bottom-20 -left-6 hidden lg:block" },
-  { value: "4+", text: "Universities", pos: "bottom-6 -right-14 hidden lg:block" },
-  { value: "100%", text: "Visa Guidance", pos: "top-20 -right-6 hidden lg:block" },
-];
-
+import {
+  hero,
+  trustBadges,
+  featuredCountries,
+  highlightCard,
+  floatingCards,
+  heroStats,
+} from "../content/hero";
 export default function Hero() {
   return (
     <section className="relative overflow-hidden bg-gradient-to-br from-slate-950 via-blue-950 to-slate-900">
@@ -54,23 +31,22 @@ export default function Hero() {
           <div>
             <div className="inline-flex items-center gap-2 rounded-full border border-cyan-400/30 bg-cyan-400/10 px-4 py-2 text-cyan-200 text-sm">
               <FaGlobeAsia />
-              Official MBBS Admission Partner
+             {hero.badge}
             </div>
 
             <h1 className="mt-6 text-4xl sm:text-5xl lg:text-7xl font-black leading-tight text-white">
-              Become a{" "}
+              {hero.title.normal}{" "}
               <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
-                Doctor
+               {hero.title.highlight}
               </span>
               <br />
-              Without Paying
+             {hero.title.line2}
               <br />
-              Donation Fees
+             {hero.title.line3}
             </h1>
 
             <p className="mt-6 text-slate-300 text-base sm:text-lg max-w-xl leading-8">
-              Study MBBS in top universities across 8 countries with complete admission,
-              visa and travel support from experienced counsellors.
+              {hero.description}
             </p>
 
             <div className="mt-8 flex flex-col sm:flex-row gap-4">
@@ -78,14 +54,14 @@ export default function Hero() {
                 onClick={() => scrollToSection("counselling")}
                 className="rounded-full bg-gradient-to-r from-cyan-500 to-blue-600 px-8 py-4 text-white font-semibold flex justify-center items-center gap-2 hover:scale-105 transition"
               >
-                Get Free Counselling <FaArrowRight />
+               {hero.primaryButton}<FaArrowRight />
               </button>
 
               <button
                 onClick={() => scrollToSection("universities")}
                 className="rounded-full border border-white/20 bg-white/5 backdrop-blur px-8 py-4 text-white hover:bg-white/10 transition"
               >
-                Explore Universities
+               {hero.secondaryButton}
               </button>
             </div>
 
@@ -99,7 +75,7 @@ export default function Hero() {
             </div>
 
             <div className="mt-8 flex flex-wrap gap-3">
-              {countries.map((c) => (
+              {featuredCountries.map((c) => (
                 <span key={c} className="rounded-full bg-cyan-500/10 border border-cyan-400/20 px-4 py-2 text-cyan-100 text-sm">
                   {c}
                 </span>
@@ -112,9 +88,9 @@ export default function Hero() {
                   <MdWorkspacePremium className="text-cyan-400 text-3xl"/>
                 </div>
                 <div>
-                  <p className="text-cyan-300 uppercase text-xs tracking-widest">Official Partner</p>
-                  <h3 className="text-white text-xl font-bold mt-1">Bishkek International Medical Institute</h3>
-                  <p className="text-slate-300 mt-2">Priority admissions for students from UP, MP & Uttarakhand.</p>
+                  <p className="text-cyan-300 uppercase text-xs tracking-widest">{highlightCard.badge}</p>
+                  <h3 className="text-white text-xl font-bold mt-1">{highlightCard.title}</h3>
+                  <p className="text-slate-300 mt-2">{highlightCard.description}</p>
                 </div>
               </div>
             </div>
@@ -123,9 +99,9 @@ export default function Hero() {
           <div className="relative flex justify-center items-center pl-8 lg:pl-16">
             <div className="absolute h-80 w-80 rounded-full bg-cyan-400/20 blur-[120px]" />
             <div className="relative">
-              <img src={doctor} alt="Doctor" className="relative z-10 w-[280px] md:w-[360px] lg:w-[390px] object-contain" />
-              {cards.map(card=>(
-                <div key={card.value} className={`absolute ${card.pos} rounded-3xl border border-white/10 bg-white/10 backdrop-blur-xl px-5 py-4`}>
+              <img src={doctor} alt="Doctor" className="relative z-10 w-[280px] md:w-[320px] lg:w-[360px] object-contain" />
+              {floatingCards.map(card=>(
+                <div key={card.value} className={`absolute ${card.pos} rounded-3xl border border-white/10 bg-white/10 backdrop-blur-xl px-3 py-3`}>
                   <h3 className="text-3xl font-bold text-white">{card.value}</h3>
                   <p className="text-slate-300 text-sm">{card.text}</p>
                 </div>
@@ -135,7 +111,7 @@ export default function Hero() {
         </div>
 
         <div className="mt-20 grid grid-cols-2 lg:grid-cols-4 rounded-3xl overflow-hidden border border-white/10 bg-white/5 backdrop-blur-xl">
-          {stats.map((s)=>(
+          {heroStats.map((s)=>(
             <div key={s.label} className="p-8 border border-white/10 hover:bg-white/10 transition">
               <div className="text-cyan-400 text-3xl">{s.icon}</div>
               <h3 className="text-white text-4xl font-black mt-4">{s.value}</h3>

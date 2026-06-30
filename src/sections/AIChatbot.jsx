@@ -30,7 +30,7 @@ setChat(prev=>[
 
 return<>
 {!open?
-<button onClick={()=>setOpen(true)} className="fixed bottom-6 right-6 z-[999] group">
+<button onClick={()=>setOpen(true)} className="fixed bottom-6 left-4 md:left-6 z-[999] group">
 <div className="absolute inset-0 rounded-full bg-cyan-500/30 animate-ping"/>
 <div className="relative h-16 w-16 rounded-full bg-gradient-to-br from-cyan-500 to-blue-700 shadow-2xl flex items-center justify-center text-white group-hover:scale-110 transition">
 <LuBotMessageSquare size={30}/>
@@ -45,7 +45,7 @@ return<>
 <FaRobot/>
 </div>
 <div>
-<h2 className="font-bold text-white">EduAbroad AI</h2>
+<h2 className="font-bold text-white">DOCFLY AI</h2>
 <p className="text-xs text-cyan-200 flex items-center gap-1"><span className="h-2 w-2 rounded-full bg-green-400"/>Online</p>
 </div>
 </div>
@@ -95,7 +95,7 @@ className="rounded-full border border-cyan-200 bg-cyan-50 px-4 py-2 text-sm hove
 </div>
 <div className="mt-3 flex items-center gap-2 text-xs text-slate-500">
 <FaCheckCircle className="text-green-500"/>
-Official EduAbroad Assistant
+Official Docfly Assistant
 </div>
 </div>
 

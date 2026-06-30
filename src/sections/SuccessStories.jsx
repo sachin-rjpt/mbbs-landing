@@ -4,32 +4,17 @@ import {
   FaUniversity,
   FaAward,
 } from "react-icons/fa";
-
-const stats = [
-  { value: "5000+", label: "Students Guided", icon: <FaUserGraduate /> },
-  { value: "8", label: "Countries", icon: <FaGlobe /> },
-  { value: "50+", label: "Partner Universities", icon: <FaUniversity /> },
-  { value: "98%", label: "Visa Success", icon: <FaAward /> },
-];
-
-const testimonials = [
-  {
-    name: "Rahul Sharma",
-    country: "Kyrgyzstan",
-    text: "The counselling team made the admission process incredibly simple. Every step was clearly explained.",
-  },
-  {
-    name: "Priya Verma",
-    country: "Russia",
-    text: "From documentation to visa approval, everything was handled professionally. Highly recommended.",
-  },
-  {
-    name: "Aman Singh",
-    country: "Georgia",
-    text: "I found the perfect university within my budget. The support after admission was excellent.",
-  },
-];
-
+import {
+  successSection,
+  stats,
+  testimonials,
+} from "../content/successStories";
+const iconMap = {
+  student: <FaUserGraduate />,
+  globe: <FaGlobe />,
+  university: <FaUniversity />,
+  award: <FaAward />,
+};
 export default function SuccessStories() {
   return (
     <section className="bg-white py-20 lg:py-28">
@@ -37,16 +22,16 @@ export default function SuccessStories() {
 
         <div className="text-center max-w-3xl mx-auto">
           <span className="inline-block rounded-full bg-cyan-100 text-cyan-700 font-semibold px-4 py-2 text-sm">
-            RESULTS THAT SPEAK
+           {successSection.badge}
           </span>
 
           <h2 className="mt-5 text-4xl md:text-5xl font-black text-slate-900">
-            Trusted By
-            <span className="block text-blue-600">Thousands Of Students</span>
+           {successSection.title}
+            <span className="block text-blue-600">{successSection.highlight}</span>
           </h2>
 
           <p className="mt-5 text-lg text-slate-600">
-            Our numbers and student experiences reflect the quality of guidance we provide.
+           {successSection.description}
           </p>
         </div>
 
@@ -57,7 +42,7 @@ export default function SuccessStories() {
               className="rounded-3xl bg-slate-900 p-8 text-center text-white hover:-translate-y-2 transition-all"
             >
               <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-cyan-500 to-blue-600 text-3xl">
-                {item.icon}
+                {iconMap[item.icon]}
               </div>
 
               <h3 className="mt-5 text-4xl font-black">{item.value}</h3>
@@ -74,7 +59,7 @@ export default function SuccessStories() {
             >
               <div className="flex items-center gap-4">
                 <div className="flex h-14 w-14 items-center justify-center rounded-full bg-gradient-to-br from-cyan-500 to-blue-600 text-xl font-bold text-white">
-                  {item.name.charAt(0)}
+                  {item.country.charAt(0)}
                 </div>
 
                 <div>
@@ -86,11 +71,10 @@ export default function SuccessStories() {
                   </p>
                 </div>
               </div>
-
-              <div className="mt-6 text-yellow-500 text-lg">
-                ★★★★★
-              </div>
-
+             <div className="mt-6 flex gap-1 text-yellow-500">
+         {Array.from({ length: 5 }).map((_, i) => (
+         <span key={i}>★</span> ))}
+            </div>
               <p className="mt-4 leading-7 text-slate-600">
                 "{item.text}"
               </p>

@@ -10,23 +10,24 @@ export const chatbotTree = {
 
     title: "Home",
 
-    message: `👋 Welcome to EduAbroad AI Assistant
+    message: `👋 Welcome to DOCFLY MBBS Abroad Assistant
 
-I'm here to help you with your MBBS Abroad journey.
+I'm here to guide you through your MBBS Abroad journey.
 
-I can answer questions related to:
+I can help you with:
 
-• Eligibility
+• MBBS Eligibility
 • Countries
 • Universities
-• MBBS Fees
 • Admission Process
-• Visa
 • Documents
-• Hostel & Student Life
-• FMGE / NExT
+• Student Visa
+• Fees & Budget
+• Student Life
+• NMC Guidelines
+• Free Counselling
 
-Please choose one of the options below.`,
+Please choose an option below.`,
 
     options: [
       {
@@ -40,13 +41,13 @@ Please choose one of the options below.`,
       },
 
       {
-        label: "💰 MBBS Fees",
-        next: "fees",
+        label: "🏫 Universities",
+        next: "universities",
       },
 
       {
-        label: "🏫 Universities",
-        next: "universities",
+        label: "💰 Fees & Budget",
+        next: "fees",
       },
 
       {
@@ -60,24 +61,23 @@ Please choose one of the options below.`,
       },
 
       {
-        label: "✈️ Visa",
+        label: "✈️ Student Visa",
         next: "visa",
       },
 
       {
-        label: "🏠 Hostel & Food",
-        next: "hostel",
-
+        label: "🏠 Student Life",
+        next: "studentlife",
       },
 
       {
-        label: "📚 FMGE / NExT",
-        next: "fmge",
+        label: "📚 NMC Guidelines",
+        next: "recognition",
       },
 
       {
-        label: "☎️ Talk to Counsellor",
-        next: "contact",
+        label: "☎️ Free Counselling",
+        next: "counselling",
       },
     ],
   },
@@ -95,34 +95,32 @@ Please choose one of the options below.`,
 
     title: "Eligibility",
 
-    message: `Students must satisfy the following eligibility criteria for MBBS Abroad:
+    message: `To study MBBS abroad through DOCFLY, students should generally meet these requirements:
 
-✅ Qualified NEET
+✅ Qualifying NEET-UG score
 
-✅ Minimum 50% marks in Physics, Chemistry & Biology (40% for reserved categories as per regulations)
+✅ Minimum age as per current NMC regulations
 
-✅ Minimum age should be 17 years before admission
+✅ 10+2 with Physics, Chemistry and Biology
 
 ✅ Valid Passport
 
-✅ Medical Fitness Certificate
-
-No IELTS or TOEFL is required for admission.`,
+Before suggesting any university, our counsellors review your NEET score, category and eligibility according to the latest NMC rules.`,
 
     options: [
       {
-        label: "💰 MBBS Fees",
-        next: "fees",
-      },
-
-      {
-        label: "📄 Documents Required",
-        next: "documents",
+        label: "🌍 Countries",
+        next: "countries",
       },
 
       {
         label: "📝 Admission Process",
         next: "admission",
+      },
+
+      {
+        label: "☎️ Free Counselling",
+        next: "counselling",
       },
 
       {
@@ -141,152 +139,51 @@ No IELTS or TOEFL is required for admission.`,
 
     parent: "home",
 
-    type: "menu",
-
-    title: "Fees",
-
-    message:
-      "Which country's MBBS fee would you like to know?",
-
-    options: [
-      {
-        label: "🇰🇬 Kyrgyzstan",
-        next: "fee_kyrgyzstan",
-      },
-
-      {
-        label: "🇷🇺 Russia",
-        next: "fee_russia",
-      },
-
-      {
-        label: "🇬🇪 Georgia",
-        next: "fee_georgia",
-      },
-
-      {
-        label: "🇰🇿 Kazakhstan",
-        next: "fee_kazakhstan",
-      },
-
-      {
-        label: "🇺🇿 Uzbekistan",
-        next: "fee_uzbekistan",
-      },
-
-      {
-        label: "🏠 Main Menu",
-        next: "home",
-      },
-    ],
-  },
-
-  fee_kyrgyzstan: {
-    id: "fee_kyrgyzstan",
-
-    parent: "fees",
-
     type: "answer",
 
-    title: "Kyrgyzstan Fees",
+    title: "Fees & Budget",
 
-    message:
-      "MBBS in Kyrgyzstan generally costs between ₹18 Lakhs and ₹30 Lakhs depending on the university, hostel and living expenses.",
+    message: `DOCFLY believes in complete fee transparency.
+
+Instead of promoting donation seats or hidden charges, we shortlist universities that provide:
+
+• Published fee structures
+
+• Fixed tuition mentioned in the offer letter
+
+• No donation or capitation fees
+
+Your final budget depends on:
+
+• Country
+
+• University
+
+• Hostel
+
+• Living expenses
+
+During counselling we recommend universities that match both your NEET score and your budget.`,
 
     options: [
+      {
+        label: "🌍 Countries",
+        next: "countries",
+      },
+
       {
         label: "🏫 Universities",
         next: "universities",
       },
 
       {
-        label: "📝 Admission Process",
-        next: "admission",
+        label: "☎️ Free Counselling",
+        next: "counselling",
       },
 
       {
-        label: "🌍 Countries",
-        next: "countries",
-      },
-    ],
-  },
-
-  fee_russia: {
-    id: "fee_russia",
-
-    parent: "fees",
-
-    type: "answer",
-
-    title: "Russia Fees",
-
-    message:
-      "MBBS in Russia generally costs between ₹25 Lakhs and ₹45 Lakhs depending on the university.",
-
-    options: [
-      {
-        label: "🌍 Countries",
-        next: "countries",
-      },
-    ],
-  },
-
-  fee_georgia: {
-    id: "fee_georgia",
-
-    parent: "fees",
-
-    type: "answer",
-
-    title: "Georgia Fees",
-
-    message:
-      "MBBS in Georgia generally costs between ₹35 Lakhs and ₹55 Lakhs.",
-
-    options: [
-      {
-        label: "🌍 Countries",
-        next: "countries",
-      },
-    ],
-  },
-
-  fee_kazakhstan: {
-    id: "fee_kazakhstan",
-
-    parent: "fees",
-
-    type: "answer",
-
-    title: "Kazakhstan Fees",
-
-    message:
-      "MBBS in Kazakhstan generally costs between ₹20 Lakhs and ₹35 Lakhs.",
-
-    options: [
-      {
-        label: "🌍 Countries",
-        next: "countries",
-      },
-    ],
-  },
-
-  fee_uzbekistan: {
-    id: "fee_uzbekistan",
-
-    parent: "fees",
-
-    type: "answer",
-
-    title: "Uzbekistan Fees",
-
-    message:
-      "MBBS in Uzbekistan generally costs between ₹20 Lakhs and ₹35 Lakhs.",
-
-    options: [
-      {
-        label: "🌍 Countries",
-        next: "countries",
+        label: "🏠 Main Menu",
+        next: "home",
       },
     ],
   },
@@ -304,25 +201,23 @@ No IELTS or TOEFL is required for admission.`,
 
     title: "Admission Process",
 
-    message: `Our admission process is simple:
+    message: `DOCFLY follows a simple 7-step admission process:
 
-1️⃣ Free Counselling
+1️⃣ Free Eligibility Review
 
-2️⃣ Choose Country & University
+2️⃣ Country & University Shortlisting
 
-3️⃣ Submit Documents
+3️⃣ Application Filing
 
-4️⃣ Receive Offer Letter
+4️⃣ Offer Letter & Fee Verification
 
-5️⃣ Pay Initial Fees
+5️⃣ Fee Payment & Confirmation
 
-6️⃣ Visa Processing
+6️⃣ Student Visa Filing
 
-7️⃣ Travel Assistance
+7️⃣ Pre-Departure Guidance & Arrival Support
 
-8️⃣ Airport Pickup
-
-9️⃣ University Registration`,
+One counsellor stays with your file from your first call until you reach your university.`,
 
     options: [
       {
@@ -331,13 +226,18 @@ No IELTS or TOEFL is required for admission.`,
       },
 
       {
-        label: "✈️ Visa",
+        label: "✈️ Student Visa",
         next: "visa",
       },
 
       {
-        label: "☎️ Talk to Counsellor",
-        next: "contact",
+        label: "☎️ Free Counselling",
+        next: "counselling",
+      },
+
+      {
+        label: "🏠 Main Menu",
+        next: "home",
       },
     ],
   },
@@ -355,7 +255,7 @@ No IELTS or TOEFL is required for admission.`,
 
     title: "Documents",
 
-    message: `Documents required for MBBS Abroad:
+    message: `Typical documents required include:
 
 • Passport
 
@@ -365,15 +265,17 @@ No IELTS or TOEFL is required for admission.`,
 
 • NEET Scorecard
 
-• Passport Size Photos
+• Passport-size Photographs
 
-• Medical Fitness Certificate
+• Application Form
 
-• Admission Application Form`,
+• Supporting attestations (where required)
+
+Our team verifies every document before submitting your university application.`,
 
     options: [
       {
-        label: "✈️ Visa",
+        label: "✈️ Student Visa",
         next: "visa",
       },
 
@@ -383,13 +285,17 @@ No IELTS or TOEFL is required for admission.`,
       },
 
       {
-        label: "☎️ Counsellor",
-        next: "contact",
+        label: "☎️ Free Counselling",
+        next: "counselling",
+      },
+
+      {
+        label: "🏠 Main Menu",
+        next: "home",
       },
     ],
   },
-
-  /* ==============================
+    /* ==============================
           VISA
   ============================== */
 
@@ -400,10 +306,23 @@ No IELTS or TOEFL is required for admission.`,
 
     type: "answer",
 
-    title: "Visa",
+    title: "Student Visa",
 
-    message:
-      "Our team assists you with complete visa documentation, application, interview guidance (if required) and travel support until your departure.",
+    message: `DOCFLY provides complete student visa assistance.
+
+Our visa support includes:
+
+• Document Verification
+
+• Visa Application Guidance
+
+• University Documentation
+
+• Financial Guidance
+
+• Pre-departure Support
+
+Our experienced team assists you throughout the visa process until your departure.`,
 
     options: [
       {
@@ -412,14 +331,19 @@ No IELTS or TOEFL is required for admission.`,
       },
 
       {
-        label: "☎️ Talk to Counsellor",
-        next: "contact",
+        label: "☎️ Free Counselling",
+        next: "counselling",
+      },
+
+      {
+        label: "🏠 Main Menu",
+        next: "home",
       },
     ],
   },
 
   /* ==============================
-      CONTACT
+        CONTACT
   ============================== */
 
   contact: {
@@ -431,26 +355,32 @@ No IELTS or TOEFL is required for admission.`,
 
     title: "Contact",
 
-    message: `Our admission experts will be happy to guide you personally.
+    message: `Our MBBS Abroad experts are happy to help.
 
-📞 +91 XXXXXXXXXX
+📍 Kanpur, Uttar Pradesh
 
-📧 info@goeduabroad.com
+📧 hello@docfly.co.in
 
-You can also fill out the counselling form available on this page, and our team will contact you shortly.`,
+Fill out the counselling form available on the website and one dedicated counsellor will contact you shortly.`,
 
     options: [
+      {
+        label: "📝 Free Counselling",
+        next: "counselling",
+      },
+
       {
         label: "🏠 Main Menu",
         next: "home",
       },
     ],
   },
+
   /* ======================================================
                     COUNTRIES MENU
 ====================================================== */
 
-countries: {
+  countries: {
     id: "countries",
 
     parent: "home",
@@ -460,154 +390,300 @@ countries: {
     title: "Countries",
 
     message:
-        "We currently assist students for MBBS admissions in the following countries. Select one to know more.",
+      "DOCFLY currently assists students for MBBS admissions in the following destinations. Select a country to know more.",
 
     options: [
-        {
-            label: "🇰🇬 Kyrgyzstan",
-            next: "kyrgyzstan",
-        },
+      {
+        label: "🇵🇱 Poland",
+        next: "poland",
+      },
 
-        {
-            label: "🇷🇺 Russia",
-            next: "russia",
-        },
+      {
+        label: "🇭🇺 Hungary",
+        next: "hungary",
+      },
 
-        {
-            label: "🇬🇪 Georgia",
-            next: "georgia",
-        },
+      {
+        label: "🇷🇴 Romania",
+        next: "romania",
+      },
 
-        {
-            label: "🇰🇿 Kazakhstan",
-            next: "kazakhstan",
-        },
+      {
+        label: "🇧🇾 Belarus",
+        next: "belarus",
+      },
 
-        {
-            label: "🇺🇿 Uzbekistan",
-            next: "uzbekistan",
-        },
+      {
+        label: "🇧🇦 Bosnia & Herzegovina",
+        next: "bosnia",
+      },
 
-        {
-            label: "🏠 Main Menu",
-            next: "home",
-        },
+      {
+        label: "🇬🇪 Georgia",
+        next: "georgia",
+      },
+
+      {
+        label: "🇦🇲 Armenia",
+        next: "armenia",
+      },
+
+      {
+        label: "🏠 Main Menu",
+        next: "home",
+      },
     ],
-},
+  },
 
-/* ======================================================
-                KYRGYZSTAN
+  /* ======================================================
+                    POLAND
 ====================================================== */
 
-kyrgyzstan: {
-    id: "kyrgyzstan",
+  poland: {
+    id: "poland",
 
     parent: "countries",
 
     type: "menu",
 
-    title: "Kyrgyzstan",
+    title: "Poland",
 
     message:
-        "MBBS in Kyrgyzstan is one of the most popular choices for Indian students because of affordable tuition fees, English-medium education and NMC-approved universities.\n\nWhat would you like to know?",
+      "Poland offers European-standard medical education with globally recognized universities, advanced clinical exposure and modern healthcare infrastructure.",
 
     options: [
-        {
-            label: "💰 Fees",
-            next: "fee_kyrgyzstan",
-        },
+      {
+        label: "🏫 Universities",
+        next: "universities_poland",
+      },
 
-        {
-            label: "🏫 Universities",
-            next: "universities_kyrgyzstan",
-        },
+      {
+        label: "💰 Fees",
+        next: "fees",
+      },
 
-        {
-            label: "🏠 Hostel",
-            next: "hostel",
-        },
+      {
+        label: "🎓 Student Life",
+        next: "studentlife",
+      },
 
-        {
-            label: "🌎 Recognition",
-            next: "recognition",
-        },
+      {
+        label: "📚 Recognition",
+        next: "recognition",
+      },
 
-        {
-            label: "🎓 Student Life",
-            next: "studentlife",
-        },
+      {
+        label: "📝 Admission",
+        next: "admission",
+      },
 
-        {
-            label: "📝 Admission Process",
-            next: "admission",
-        },
-
-        {
-            label: "⬅ Back",
-            next: "countries",
-        },
+      {
+        label: "⬅ Back",
+        next: "countries",
+      },
     ],
-},
+  },
 
-/* ======================================================
-                RUSSIA
+  /* ======================================================
+                    HUNGARY
 ====================================================== */
 
-russia: {
-    id: "russia",
+  hungary: {
+    id: "hungary",
 
     parent: "countries",
 
     type: "menu",
 
-    title: "Russia",
+    title: "Hungary",
 
     message:
-        "Russia has some of the world's oldest medical universities with modern infrastructure and global recognition.",
+      "Hungary is among Europe's most preferred destinations for international medical education with English-medium MBBS programs.",
 
     options: [
-        {
-            label: "💰 Fees",
-            next: "fee_russia",
-        },
+      {
+        label: "🏫 Universities",
+        next: "universities_hungary",
+      },
 
-        {
-            label: "🏫 Universities",
-            next: "universities_russia",
-        },
+      {
+        label: "💰 Fees",
+        next: "fees",
+      },
 
-        {
-            label: "🏠 Hostel",
-            next: "hostel",
-        },
+      {
+        label: "🎓 Student Life",
+        next: "studentlife",
+      },
 
-        {
-            label: "🌎 Recognition",
-            next: "recognition",
-        },
+      {
+        label: "📚 Recognition",
+        next: "recognition",
+      },
 
-        {
-            label: "🎓 Student Life",
-            next: "studentlife",
-        },
+      {
+        label: "📝 Admission",
+        next: "admission",
+      },
 
-        {
-            label: "📝 Admission Process",
-            next: "admission",
-        },
-
-        {
-            label: "⬅ Back",
-            next: "countries",
-        },
+      {
+        label: "⬅ Back",
+        next: "countries",
+      },
     ],
-},
+  },
 
-/* ======================================================
-                GEORGIA
+  /* ======================================================
+                    ROMANIA
 ====================================================== */
 
-georgia: {
+  romania: {
+    id: "romania",
+
+    parent: "countries",
+
+    type: "menu",
+
+    title: "Romania",
+
+    message:
+      "Romania offers affordable European medical education with internationally recognized universities and quality clinical training.",
+
+    options: [
+      {
+        label: "🏫 Universities",
+        next: "universities_romania",
+      },
+
+      {
+        label: "💰 Fees",
+        next: "fees",
+      },
+
+      {
+        label: "🎓 Student Life",
+        next: "studentlife",
+      },
+
+      {
+        label: "📚 Recognition",
+        next: "recognition",
+      },
+
+      {
+        label: "📝 Admission",
+        next: "admission",
+      },
+
+      {
+        label: "⬅ Back",
+        next: "countries",
+      },
+    ],
+  },
+
+  /* ======================================================
+                    BELARUS
+====================================================== */
+
+  belarus: {
+    id: "belarus",
+
+    parent: "countries",
+
+    type: "menu",
+
+    title: "Belarus",
+
+    message:
+      "Belarus has long been a preferred destination for medical education due to experienced faculty, quality infrastructure and affordable education.",
+
+    options: [
+      {
+        label: "🏫 Universities",
+        next: "universities_belarus",
+      },
+
+      {
+        label: "💰 Fees",
+        next: "fees",
+      },
+
+      {
+        label: "🎓 Student Life",
+        next: "studentlife",
+      },
+
+      {
+        label: "📚 Recognition",
+        next: "recognition",
+      },
+
+      {
+        label: "📝 Admission",
+        next: "admission",
+      },
+
+      {
+        label: "⬅ Back",
+        next: "countries",
+      },
+    ],
+  },
+    /* ======================================================
+            BOSNIA & HERZEGOVINA
+====================================================== */
+
+  bosnia: {
+    id: "bosnia",
+
+    parent: "countries",
+
+    type: "menu",
+
+    title: "Bosnia & Herzegovina",
+
+    message:
+      "Bosnia & Herzegovina is an emerging European destination offering quality medical education, modern infrastructure and internationally accepted degrees.",
+
+    options: [
+      {
+        label: "🏫 Universities",
+        next: "universities_bosnia",
+      },
+
+      {
+        label: "💰 Fees",
+        next: "fees",
+      },
+
+      {
+        label: "🎓 Student Life",
+        next: "studentlife",
+      },
+
+      {
+        label: "📚 Recognition",
+        next: "recognition",
+      },
+
+      {
+        label: "📝 Admission",
+        next: "admission",
+      },
+
+      {
+        label: "⬅ Back",
+        next: "countries",
+      },
+    ],
+  },
+
+  /* ======================================================
+                    GEORGIA
+====================================================== */
+
+  georgia: {
     id: "georgia",
 
     parent: "countries",
@@ -617,159 +693,95 @@ georgia: {
     title: "Georgia",
 
     message:
-        "Georgia is well known for its high-quality education, European lifestyle and English-medium MBBS programs.",
+      "Georgia is one of the most popular MBBS destinations for Indian students because of its modern universities, English-medium education and student-friendly environment.",
 
     options: [
-        {
-            label: "💰 Fees",
-            next: "fee_georgia",
-        },
+      {
+        label: "🏫 Universities",
+        next: "universities_georgia",
+      },
 
-        {
-            label: "🏫 Universities",
-            next: "universities_georgia",
-        },
+      {
+        label: "💰 Fees",
+        next: "fees",
+      },
 
-        {
-            label: "🏠 Hostel",
-            next: "hostel",
-        },
+      {
+        label: "🎓 Student Life",
+        next: "studentlife",
+      },
 
-        {
-            label: "🌎 Recognition",
-            next: "recognition",
-        },
+      {
+        label: "📚 Recognition",
+        next: "recognition",
+      },
 
-        {
-            label: "🎓 Student Life",
-            next: "studentlife",
-        },
+      {
+        label: "📝 Admission",
+        next: "admission",
+      },
 
-        {
-            label: "📝 Admission Process",
-            next: "admission",
-        },
-
-        {
-            label: "⬅ Back",
-            next: "countries",
-        },
+      {
+        label: "⬅ Back",
+        next: "countries",
+      },
     ],
-},
+  },
 
-/* ======================================================
-                KAZAKHSTAN
+  /* ======================================================
+                    ARMENIA
 ====================================================== */
 
-kazakhstan: {
-    id: "kazakhstan",
+  armenia: {
+    id: "armenia",
 
     parent: "countries",
 
     type: "menu",
 
-    title: "Kazakhstan",
+    title: "Armenia",
 
     message:
-        "Kazakhstan offers affordable MBBS education with experienced faculty and modern teaching facilities.",
+      "Armenia provides affordable medical education with experienced faculty, quality clinical exposure and a welcoming environment for international students.",
 
     options: [
-        {
-            label: "💰 Fees",
-            next: "fee_kazakhstan",
-        },
+      {
+        label: "🏫 Universities",
+        next: "universities_armenia",
+      },
 
-        {
-            label: "🏫 Universities",
-            next: "universities_kazakhstan",
-        },
+      {
+        label: "💰 Fees",
+        next: "fees",
+      },
 
-        {
-            label: "🏠 Hostel",
-            next: "hostel",
-        },
+      {
+        label: "🎓 Student Life",
+        next: "studentlife",
+      },
 
-        {
-            label: "🌎 Recognition",
-            next: "recognition",
-        },
+      {
+        label: "📚 Recognition",
+        next: "recognition",
+      },
 
-        {
-            label: "🎓 Student Life",
-            next: "studentlife",
-        },
+      {
+        label: "📝 Admission",
+        next: "admission",
+      },
 
-        {
-            label: "📝 Admission Process",
-            next: "admission",
-        },
-
-        {
-            label: "⬅ Back",
-            next: "countries",
-        },
+      {
+        label: "⬅ Back",
+        next: "countries",
+      },
     ],
-},
+  },
 
-/* ======================================================
-                UZBEKISTAN
+  /* ======================================================
+                RECOGNITION
 ====================================================== */
 
-uzbekistan: {
-    id: "uzbekistan",
-
-    parent: "countries",
-
-    type: "menu",
-
-    title: "Uzbekistan",
-
-    message:
-        "Uzbekistan has become a preferred destination for Indian students due to affordable tuition, quality education and excellent hostel facilities.",
-
-    options: [
-        {
-            label: "💰 Fees",
-            next: "fee_uzbekistan",
-        },
-
-        {
-            label: "🏫 Universities",
-            next: "universities_uzbekistan",
-        },
-
-        {
-            label: "🏠 Hostel",
-            next: "hostel",
-        },
-
-        {
-            label: "🌎 Recognition",
-            next: "recognition",
-        },
-
-        {
-            label: "🎓 Student Life",
-            next: "studentlife",
-        },
-
-        {
-            label: "📝 Admission Process",
-            next: "admission",
-        },
-
-        {
-            label: "⬅ Back",
-            next: "countries",
-        },
-    ],
-},
-
-/* ======================================================
-            COMMON COUNTRY NODES
-====================================================== */
-
-recognition: {
+  recognition: {
     id: "recognition",
 
     parent: "countries",
@@ -778,51 +790,96 @@ recognition: {
 
     title: "Recognition",
 
-    message:
-        "The universities we work with are recognized by NMC, WHO and other international medical bodies, making graduates eligible for licensing pathways according to the regulations of the country where they wish to practice.",
+    message: `DOCFLY recommends universities after carefully reviewing their academic standards and eligibility under applicable regulations.
+
+Our counselling team helps students understand:
+
+• NMC Guidelines
+
+• University Recognition
+
+• Degree Acceptance
+
+• Licensing Pathways
+
+• Country-specific requirements
+
+Students should always verify the latest regulations before applying.`,
 
     options: [
-        {
-            label: "🏠 Main Menu",
-            next: "home",
-        },
+      {
+        label: "🏫 Universities",
+        next: "universities",
+      },
 
-        {
-            label: "☎ Talk to Counsellor",
-            next: "contact",
-        },
+      {
+        label: "☎️ Free Counselling",
+        next: "counselling",
+      },
+
+      {
+        label: "🏠 Main Menu",
+        next: "home",
+      },
     ],
-},
+  },
 
-studentlife: {
+  /* ======================================================
+                STUDENT LIFE
+====================================================== */
+
+  studentlife: {
     id: "studentlife",
 
-    parent: "countries",
+    parent: "home",
 
     type: "answer",
 
     title: "Student Life",
 
-    message:
-        "Students enjoy modern hostels, Indian food options, multicultural classrooms, campus activities and a safe learning environment with complete support throughout their MBBS journey.",
+    message: `International students generally enjoy:
+
+• Safe Accommodation
+
+• Modern Campuses
+
+• Practical Clinical Training
+
+• International Classrooms
+
+• Library & Research Facilities
+
+• Sports & Cultural Activities
+
+• Public Transport Access
+
+• Dedicated Student Support
+
+DOCFLY also provides pre-departure guidance so students feel prepared before travelling abroad.`,
 
     options: [
-        {
-            label: "🏠 Main Menu",
-            next: "home",
-        },
+      {
+        label: "🏫 Universities",
+        next: "universities",
+      },
 
-        {
-            label: "☎ Talk to Counsellor",
-            next: "contact",
-        },
+      {
+        label: "☎️ Free Counselling",
+        next: "counselling",
+      },
+
+      {
+        label: "🏠 Main Menu",
+        next: "home",
+      },
     ],
-},
-/* ======================================================
+  },
+
+  /* ======================================================
                 UNIVERSITIES MENU
 ====================================================== */
 
-universities: {
+  universities: {
     id: "universities",
 
     parent: "home",
@@ -832,550 +889,343 @@ universities: {
     title: "Universities",
 
     message:
-        "Select the country to view our partner medical universities.",
+      "Select your preferred destination to know about available medical universities.",
 
     options: [
-        {
-            label: "🇰🇬 Kyrgyzstan",
-            next: "universities_kyrgyzstan",
-        },
+      {
+        label: "🇵🇱 Poland",
+        next: "universities_poland",
+      },
 
-        {
-            label: "🇷🇺 Russia",
-            next: "universities_russia",
-        },
+      {
+        label: "🇭🇺 Hungary",
+        next: "universities_hungary",
+      },
 
-        {
-            label: "🇬🇪 Georgia",
-            next: "universities_georgia",
-        },
+      {
+        label: "🇷🇴 Romania",
+        next: "universities_romania",
+      },
 
-        {
-            label: "🇰🇿 Kazakhstan",
-            next: "universities_kazakhstan",
-        },
+      {
+        label: "🇧🇾 Belarus",
+        next: "universities_belarus",
+      },
 
-        {
-            label: "🇺🇿 Uzbekistan",
-            next: "universities_uzbekistan",
-        },
+      {
+        label: "🇧🇦 Bosnia & Herzegovina",
+        next: "universities_bosnia",
+      },
 
-        {
-            label: "🏠 Main Menu",
-            next: "home",
-        },
+      {
+        label: "🇬🇪 Georgia",
+        next: "universities_georgia",
+      },
+
+      {
+        label: "🇦🇲 Armenia",
+        next: "universities_armenia",
+      },
+
+      {
+        label: "🏠 Main Menu",
+        next: "home",
+      },
     ],
-},
-
-/* ======================================================
-            KYRGYZSTAN UNIVERSITIES
+  },
+    /* ======================================================
+            POLAND UNIVERSITIES
 ====================================================== */
 
-universities_kyrgyzstan:{
-    id:"universities_kyrgyzstan",
+  universities_poland: {
+    id: "universities_poland",
 
-    parent:"universities",
+    parent: "universities",
 
-    type:"menu",
+    type: "answer",
 
-    title:"Kyrgyzstan Universities",
+    title: "Poland Universities",
 
-    message:"Choose a university to know more.",
+    message: `DOCFLY helps students explore reputed medical universities in Poland based on their eligibility, academic profile and career goals.
 
-    options:[
-        {
-            label:"🏫 Bishkek International Medical Institute (BIMI)",
-            next:"bimi"
-        },
+Our counsellors guide you in selecting the most suitable university after evaluating your complete profile.`,
 
-        {
-            label:"🏫 Osh State University",
-            next:"osh"
-        },
+    options: [
+      {
+        label: "💰 Fees",
+        next: "fees",
+      },
 
-        {
-            label:"🏫 Asian Medical Institute",
-            next:"asian"
-        },
+      {
+        label: "☎️ Free Counselling",
+        next: "counselling",
+      },
 
-        {
-            label:"⬅ Back",
-            next:"universities"
-        }
-    ]
-},
+      {
+        label: "⬅ Back",
+        next: "universities",
+      },
+    ],
+  },
 
-bimi:{
-    id:"bimi",
-
-    parent:"universities_kyrgyzstan",
-
-    type:"answer",
-
-    title:"BIMI",
-
-    message:
-`Bishkek International Medical Institute (BIMI)
-
-• Country : Kyrgyzstan
-
-• Medium : English
-
-• Duration : 6 Years
-
-• Recognition : NMC & WHO
-
-• Modern Campus
-
-• Indian Food Available
-
-• Separate Hostel
-
-• Affordable Tuition Fees
-
-BIMI is one of our recommended universities for Indian students.`,
-
-    options:[
-        {
-            label:"💰 Fees",
-            next:"fee_kyrgyzstan"
-        },
-
-        {
-            label:"📝 Admission Process",
-            next:"admission"
-        },
-
-        {
-            label:"☎ Talk to Counsellor",
-            next:"contact"
-        },
-
-        {
-            label:"⬅ Universities",
-            next:"universities_kyrgyzstan"
-        }
-    ]
-},
-
-osh:{
-    id:"osh",
-
-    parent:"universities_kyrgyzstan",
-
-    type:"answer",
-
-    title:"Osh State University",
-
-    message:
-`Osh State University
-
-• Government University
-
-• English Medium
-
-• NMC Approved
-
-• WHO Recognized
-
-• Excellent Clinical Exposure
-
-• Affordable Hostel
-
-• Indian Students Every Year`,
-
-    options:[
-        {
-            label:"💰 Fees",
-            next:"fee_kyrgyzstan"
-        },
-
-        {
-            label:"☎ Counsellor",
-            next:"contact"
-        },
-
-        {
-            label:"⬅ Universities",
-            next:"universities_kyrgyzstan"
-        }
-    ]
-},
-
-asian:{
-    id:"asian",
-
-    parent:"universities_kyrgyzstan",
-
-    type:"answer",
-
-    title:"Asian Medical Institute",
-
-    message:
-`Asian Medical Institute
-
-• English Medium
-
-• NMC Approved
-
-• WHO Listed
-
-• Indian Hostel
-
-• Indian Mess
-
-• Affordable Tuition
-
-• Safe Campus`,
-
-    options:[
-        {
-            label:"💰 Fees",
-            next:"fee_kyrgyzstan"
-        },
-
-        {
-            label:"☎ Counsellor",
-            next:"contact"
-        },
-
-        {
-            label:"⬅ Universities",
-            next:"universities_kyrgyzstan"
-        }
-    ]
-},
-
-/* ======================================================
-            RUSSIA UNIVERSITIES
+  /* ======================================================
+            HUNGARY UNIVERSITIES
 ====================================================== */
 
-universities_russia:{
-    id:"universities_russia",
+  universities_hungary: {
+    id: "universities_hungary",
 
-    parent:"universities",
+    parent: "universities",
 
-    type:"answer",
+    type: "answer",
 
-    title:"Russia",
+    title: "Hungary Universities",
 
-    message:
-`We work with multiple NMC-approved Russian Medical Universities.
+    message: `DOCFLY assists students in choosing among leading medical universities in Hungary according to eligibility, budget and future career plans.`,
 
-Our counsellor will recommend the most suitable university according to your NEET score, budget and preferences.`,
+    options: [
+      {
+        label: "💰 Fees",
+        next: "fees",
+      },
 
-    options:[
-        {
-            label:"💰 MBBS Fees",
-            next:"fee_russia"
-        },
+      {
+        label: "☎️ Free Counselling",
+        next: "counselling",
+      },
 
-        {
-            label:"☎ Talk to Counsellor",
-            next:"contact"
-        },
+      {
+        label: "⬅ Back",
+        next: "universities",
+      },
+    ],
+  },
 
-        {
-            label:"⬅ Universities",
-            next:"universities"
-        }
-    ]
-},
-
-/* ======================================================
-            GEORGIA
+  /* ======================================================
+            ROMANIA UNIVERSITIES
 ====================================================== */
 
-universities_georgia:{
-    id:"universities_georgia",
+  universities_romania: {
+    id: "universities_romania",
 
-    parent:"universities",
+    parent: "universities",
 
-    type:"answer",
+    type: "answer",
 
-    title:"Georgia",
+    title: "Romania Universities",
 
-    message:
-`We partner with leading medical universities in Georgia that offer English-medium MBBS programs with global recognition.`,
+    message: `Our team helps students identify the most appropriate Romanian medical university based on academic eligibility and preferences.`,
 
-    options:[
-        {
-            label:"💰 MBBS Fees",
-            next:"fee_georgia"
-        },
+    options: [
+      {
+        label: "💰 Fees",
+        next: "fees",
+      },
 
-        {
-            label:"☎ Counsellor",
-            next:"contact"
-        },
+      {
+        label: "☎️ Free Counselling",
+        next: "counselling",
+      },
 
-        {
-            label:"⬅ Universities",
-            next:"universities"
-        }
-    ]
-},
+      {
+        label: "⬅ Back",
+        next: "universities",
+      },
+    ],
+  },
 
-/* ======================================================
-            KAZAKHSTAN
+  /* ======================================================
+            BELARUS UNIVERSITIES
 ====================================================== */
 
-universities_kazakhstan:{
-    id:"universities_kazakhstan",
+  universities_belarus: {
+    id: "universities_belarus",
 
-    parent:"universities",
+    parent: "universities",
 
-    type:"answer",
+    type: "answer",
 
-    title:"Kazakhstan",
+    title: "Belarus Universities",
 
-    message:
-`Kazakhstan offers affordable MBBS programs with modern infrastructure and experienced faculty members.`,
+    message: `DOCFLY provides guidance for admission to recognized medical universities in Belarus with complete application support.`,
 
-    options:[
-        {
-            label:"💰 MBBS Fees",
-            next:"fee_kazakhstan"
-        },
+    options: [
+      {
+        label: "💰 Fees",
+        next: "fees",
+      },
 
-        {
-            label:"☎ Counsellor",
-            next:"contact"
-        },
+      {
+        label: "☎️ Free Counselling",
+        next: "counselling",
+      },
 
-        {
-            label:"⬅ Universities",
-            next:"universities"
-        }
-    ]
-},
+      {
+        label: "⬅ Back",
+        next: "universities",
+      },
+    ],
+  },
 
-/* ======================================================
-            UZBEKISTAN
+  /* ======================================================
+      BOSNIA & HERZEGOVINA UNIVERSITIES
 ====================================================== */
 
-universities_uzbekistan:{
-    id:"universities_uzbekistan",
+  universities_bosnia: {
+    id: "universities_bosnia",
 
-    parent:"universities",
+    parent: "universities",
 
-    type:"answer",
+    type: "answer",
 
-    title:"Uzbekistan",
+    title: "Bosnia & Herzegovina Universities",
 
-    message:
-`We assist students in securing admission to reputed medical universities in Uzbekistan with complete admission support.`,
+    message: `DOCFLY helps students explore quality medical universities in Bosnia & Herzegovina with complete admission assistance.`,
 
-    options:[
-        {
-            label:"💰 MBBS Fees",
-            next:"fee_uzbekistan"
-        },
+    options: [
+      {
+        label: "💰 Fees",
+        next: "fees",
+      },
 
-        {
-            label:"☎ Counsellor",
-            next:"contact"
-        },
+      {
+        label: "☎️ Free Counselling",
+        next: "counselling",
+      },
 
-        {
-            label:"⬅ Universities",
-            next:"universities"
-        }
-    ]
-},
-/* ======================================================
-                HOSTEL & FOOD
+      {
+        label: "⬅ Back",
+        next: "universities",
+      },
+    ],
+  },
+
+  /* ======================================================
+            GEORGIA UNIVERSITIES
 ====================================================== */
 
-hostel: {
-    id: "hostel",
+  universities_georgia: {
+    id: "universities_georgia",
+
+    parent: "universities",
+
+    type: "answer",
+
+    title: "Georgia Universities",
+
+    message: `DOCFLY assists students in selecting reputed Georgian medical universities that match their eligibility and career goals.`,
+
+    options: [
+      {
+        label: "💰 Fees",
+        next: "fees",
+      },
+
+      {
+        label: "☎️ Free Counselling",
+        next: "counselling",
+      },
+
+      {
+        label: "⬅ Back",
+        next: "universities",
+      },
+    ],
+  },
+
+  /* ======================================================
+            ARMENIA UNIVERSITIES
+====================================================== */
+
+  universities_armenia: {
+    id: "universities_armenia",
+
+    parent: "universities",
+
+    type: "answer",
+
+    title: "Armenia Universities",
+
+    message: `DOCFLY helps students apply to leading Armenian medical universities with complete documentation and admission support.`,
+
+    options: [
+      {
+        label: "💰 Fees",
+        next: "fees",
+      },
+
+      {
+        label: "☎️ Free Counselling",
+        next: "counselling",
+      },
+
+      {
+        label: "⬅ Back",
+        next: "universities",
+      },
+    ],
+  },
+
+  /* ======================================================
+                WHY DOCFLY
+====================================================== */
+
+  why: {
+    id: "why",
 
     parent: "home",
 
     type: "answer",
 
-    title: "Hostel & Food",
+    title: "Why DOCFLY",
 
-    message:
-`Students are provided with safe and comfortable hostel accommodation.
+    message: `Why students choose DOCFLY:
 
-Facilities include:
+✅ One Dedicated Counsellor
 
-• Separate hostel for boys & girls
+✅ Transparent Guidance
 
-• Indian food available
+✅ University Shortlisting
 
-• Wi-Fi
+✅ Documentation Support
 
-• Laundry
+✅ Student Visa Assistance
 
-• Security
+✅ Pre-Departure Guidance
 
-• CCTV
+✅ Honest Counselling
 
-• Study rooms
-
-• Walking distance from university (depending on university).`,
+✅ End-to-End Admission Support`,
 
     options: [
+      {
+        label: "☎️ Free Counselling",
+        next: "counselling",
+      },
 
-        {
-            label:"🍛 Food",
-            next:"food"
-        },
+      {
+        label: "🏠 Main Menu",
+        next: "home",
+      },
+    ],
+  },
 
-        {
-            label:"🎓 Student Life",
-            next:"studentlife"
-        },
-
-        {
-            label:"📝 Admission Process",
-            next:"admission"
-        },
-
-        {
-            label:"☎ Talk to Counsellor",
-            next:"contact"
-        }
-
-    ]
-},
-
-food:{
-    id:"food",
-
-    parent:"hostel",
-
-    type:"answer",
-
-    title:"Indian Food",
-
-    message:
-`Most partner universities provide Indian mess facilities.
-
-Students can also cook their own meals in hostel kitchens.
-
-Vegetarian and Non-Vegetarian meals are available.`,
-
-    options:[
-        {
-            label:"🏠 Hostel",
-            next:"hostel"
-        },
-
-        {
-            label:"🎓 Student Life",
-            next:"studentlife"
-        },
-
-        {
-            label:"☎ Counsellor",
-            next:"contact"
-        }
-    ]
-},
-
-/* ======================================================
-                    FMGE
-====================================================== */
-
-fmge:{
-    id:"fmge",
-
-    parent:"home",
-
-    type:"answer",
-
-    title:"FMGE / NExT",
-
-    message:
-`Students graduating from NMC-approved universities can appear for FMGE/NExT according to the latest NMC regulations.
-
-We also guide students regarding licensing pathways after MBBS.`,
-
-    options:[
-
-        {
-            label:"🌎 Recognition",
-            next:"recognition"
-        },
-
-        {
-            label:"🏫 Universities",
-            next:"universities"
-        },
-
-        {
-            label:"☎ Talk to Counsellor",
-            next:"contact"
-        }
-
-    ]
-},
-
-/* ======================================================
-                    WHY EDUABROAD
-====================================================== */
-
-why:{
-    id:"why",
-
-    parent:"home",
-
-    type:"answer",
-
-    title:"Why EduAbroad",
-
-    message:
-`Why choose EduAbroad?
-
-✅ Experienced Admission Counsellors
-
-✅ NMC Approved Universities
-
-✅ Transparent Fee Structure
-
-✅ Visa Assistance
-
-✅ Airport Pickup
-
-✅ Hostel Assistance
-
-✅ University Registration
-
-✅ Support Throughout MBBS Journey`,
-
-    options:[
-        {
-            label:"☎ Contact Expert",
-            next:"contact"
-        },
-
-        {
-            label:"📝 Free Counselling",
-            next:"counselling"
-        }
-    ]
-},
-
-/* ======================================================
+  /* ======================================================
                 FREE COUNSELLING
 ====================================================== */
 
-counselling:{
-    id:"counselling",
+  counselling: {
+    id: "counselling",
 
-    parent:"home",
+    parent: "home",
 
-    type:"action",
+    type: "action",
 
-    title:"Free Counselling",
+    title: "Free Counselling",
 
-    message:
-`🎉 Great!
+    message: `Great!
 
-Our admission experts can help you choose the best university according to your:
+Our admission experts will help you choose the best university according to your:
 
 • NEET Score
 
@@ -1385,89 +1235,48 @@ Our admission experts can help you choose the best university according to your:
 
 • Career Goals
 
-Please fill the counselling form available on this page and our counsellor will contact you shortly.`,
+Simply fill out the counselling form available on the DOCFLY website and your dedicated counsellor will contact you.`,
 
-    options:[
+    options: [
+      {
+        label: "☎️ Contact DOCFLY",
+        next: "contact",
+      },
 
-        {
-            label:"📄 Open Counselling Form",
-            next:"form"
-        },
+      {
+        label: "🏠 Main Menu",
+        next: "home",
+      },
+    ],
+  },
 
-        {
-            label:"☎ Contact Expert",
-            next:"contact"
-        }
-
-    ]
-},
-
-/* ======================================================
-                FORM
+  /* ======================================================
+                UNKNOWN
 ====================================================== */
 
-form:{
-    id:"form",
+  unknown: {
+    id: "unknown",
 
-    parent:"counselling",
+    parent: null,
 
-    type:"action",
+    type: "answer",
 
-    title:"Counselling Form",
+    title: "Unknown",
 
-    message:
-`Please scroll down and fill the counselling form available on this page.
+    message: `I'm currently trained to answer questions related to DOCFLY and MBBS Abroad admissions.
 
-Our team usually contacts students within a few hours.`,
+For personalized guidance, please connect with a DOCFLY counsellor.`,
 
-    options:[
-        {
-            label:"☎ Call Now",
-            next:"contact"
-        },
+    options: [
+      {
+        label: "☎️ Free Counselling",
+        next: "counselling",
+      },
 
-        {
-            label:"🏠 Main Menu",
-            next:"home"
-        }
-    ]
-},
-
-/* ======================================================
-                UNKNOWN QUERY
-====================================================== */
-
-unknown:{
-    id:"unknown",
-
-    parent:null,
-
-    type:"answer",
-
-    title:"Unknown",
-
-    message:
-`I'm currently trained to answer only questions related to EduAbroad and MBBS Abroad admissions.
-
-For personalised guidance, please connect with one of our admission experts.`,
-
-    options:[
-
-        {
-            label:"☎ Contact Expert",
-            next:"contact"
-        },
-
-        {
-            label:"📝 Book Free Counselling",
-            next:"counselling"
-        },
-
-        {
-            label:"🏠 Main Menu",
-            next:"home"
-        }
-
-    ]
-},
+      {
+        label: "🏠 Main Menu",
+        next: "home",
+      },
+    ],
+  },
 };

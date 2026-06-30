@@ -7,10 +7,12 @@ import {
   FaPaperPlane,
   FaCheckCircle,
 } from "react-icons/fa";
-
-const countries=[
-"Kyrgyzstan","Russia","Kazakhstan","Georgia","China","Italy","Poland","Uzbekistan"
-];
+import {
+  counsellingSection,
+  counsellingBenefits,
+  preferredCountries,
+  counsellingForm,
+} from "../content/counselling";
 
 export default function Counselling(){
 
@@ -40,25 +42,20 @@ return(
 
 <div>
 <span className="inline-flex rounded-full border border-cyan-400/20 bg-cyan-500/10 px-4 py-2 text-sm font-semibold text-cyan-300">
-FREE MBBS COUNSELLING
+{counsellingSection.badge}
 </span>
 
 <h2 className="mt-6 text-4xl md:text-6xl font-black text-white leading-tight">
-Let's Plan Your
-<span className="block text-cyan-400">Medical Career</span>
+{counsellingSection.title}
+<span className="block text-cyan-400">{counsellingSection.highlight}</span>
 </h2>
 
 <p className="mt-6 text-lg text-slate-300 leading-8">
-Get personalized guidance from our admission experts. We'll help you choose the right country, university and budget.
+ {counsellingSection.description}
 </p>
 
 <div className="mt-10 space-y-5">
-{[
-"100% Free Counselling",
-"NMC Approved Universities",
-"Visa & Documentation Support",
-"No Donation Policy"
-].map(item=>(
+{counsellingBenefits.map(item=>(
 <div key={item} className="flex items-center gap-3 text-slate-200">
 <FaCheckCircle className="text-cyan-400"/>
 <span>{item}</span>
@@ -70,11 +67,11 @@ Get personalized guidance from our admission experts. We'll help you choose the 
 <div className="rounded-[32px] border border-white/10 bg-white/10 backdrop-blur-xl p-8 shadow-2xl">
 
 <h3 className="text-3xl font-bold text-white">
-Book Free Consultation
+{counsellingForm.title}
 </h3>
 
 <p className="mt-2 text-slate-300">
-Our counsellor will contact you shortly.
+{counsellingForm.description}
 </p>
 
 <form onSubmit={handleSubmit} className="mt-8 space-y-5">
@@ -121,8 +118,8 @@ value={form.country}
 onChange={handleChange}
 className="w-full appearance-none rounded-2xl border border-white/10 bg-white/5 py-4 pl-12 pr-4 text-white outline-none focus:border-cyan-400"
 >
-<option value="" className="text-black">Preferred Country</option>
-{countries.map(c=><option key={c} value={c} className="text-black">{c}</option>)}
+<option value="" className="text-black">Preferred Study Destination</option>
+{preferredCountries.map(c=><option key={c} value={c} className="text-black">{c}</option>)}
 </select>
 </div>
 
@@ -131,7 +128,7 @@ rows="4"
 name="message"
 value={form.message}
 onChange={handleChange}
-placeholder="Tell us about your requirements..."
+placeholder="Tell us about your NEET qualification, preferred destination, budget, or any questions you have..."
 className="w-full rounded-2xl border border-white/10 bg-white/5 p-4 text-white placeholder:text-slate-400 outline-none focus:border-cyan-400 resize-none"
 />
 
@@ -139,16 +136,28 @@ className="w-full rounded-2xl border border-white/10 bg-white/5 p-4 text-white p
 type="submit"
 className="flex w-full items-center justify-center gap-2 rounded-full bg-gradient-to-r from-cyan-500 to-blue-600 py-4 font-semibold text-white transition hover:scale-[1.02]"
 >
-Submit Enquiry
+{counsellingForm.button}
 <FaPaperPlane/>
 </button>
-
 </form>
+<div className="flex flex-col items-center justify-center my-2">
+Our counsellor will contact you shortly.
+<div className="mt-5 flex flex-wrap gap-2">
+  <span className="rounded-full bg-cyan-500/10 px-3 py-1 text-xs text-cyan-300">
+    Free Guidance
+  </span>
 
+  <span className="rounded-full bg-cyan-500/10 px-3 py-1 text-xs text-cyan-300">
+    No Hidden Charges
+  </span>
+
+  <span className="rounded-full bg-cyan-500/10 px-3 py-1 text-xs text-cyan-300">
+    Fast Response
+  </span>
 </div>
-
 </div>
-
+</div>
+</div>
 </div>
 </section>
 );

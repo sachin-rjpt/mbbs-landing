@@ -8,25 +8,7 @@ import {
   FaMapMarkerAlt,
   FaArrowUp,
 } from "react-icons/fa";
-
-const quickLinks=[
-"Home",
-"Countries",
-"Universities",
-"Admission Process",
-"FAQ",
-"Contact",
-];
-
-const countries=[
-"Kyrgyzstan",
-"Russia",
-"Kazakhstan",
-"Georgia",
-"China",
-"Italy",
-];
-
+import { footerContent } from "../content/footer";
 export default function Footer(){
 
 const scrollTop=()=>window.scrollTo({top:0,behavior:"smooth"});
@@ -40,11 +22,11 @@ return(
 
 <div>
 <h2 className="text-3xl font-black bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
-EduAbroad
+{footerContent.brand.name}
 </h2>
 
 <p className="mt-5 leading-7 text-slate-400">
-Helping students achieve their dream of studying MBBS abroad through trusted guidance, transparent admissions and complete support.
+{footerContent.brand.tagline}
 </p>
 
 <div className="mt-6 flex gap-3">
@@ -54,9 +36,12 @@ Helping students achieve their dream of studying MBBS abroad through trusted gui
 <FaLinkedinIn/>,
 <FaYoutube/>
 ].map((icon,index)=>(
-<button key={index} className="flex h-11 w-11 items-center justify-center rounded-full bg-slate-800 hover:bg-cyan-500 transition">
-{icon}
-</button>
+<a
+  href="#"
+  className="flex h-11 w-11 items-center justify-center rounded-full bg-slate-800 transition hover:-translate-y-1 hover:bg-cyan-500"
+>
+  {icon}
+</a>
 ))}
 </div>
 </div>
@@ -64,10 +49,11 @@ Helping students achieve their dream of studying MBBS abroad through trusted gui
 <div>
 <h3 className="text-xl font-bold">Quick Links</h3>
 <ul className="mt-5 space-y-3">
-{quickLinks.map(link=>(
+{footerContent.quickLinks.map(link=>(
 <li key={link}>
-<button className="text-slate-400 hover:text-cyan-400 transition">
-{link}
+<button className="group flex items-center gap-2 text-slate-400 transition hover:text-cyan-400">
+  <span className="h-1.5 w-1.5 rounded-full bg-cyan-500 opacity-0 transition group-hover:opacity-100"></span>
+  {link}
 </button>
 </li>
 ))}
@@ -77,9 +63,10 @@ Helping students achieve their dream of studying MBBS abroad through trusted gui
 <div>
 <h3 className="text-xl font-bold">Study Destinations</h3>
 <ul className="mt-5 space-y-3">
-{countries.map(country=>(
-<li key={country} className="text-slate-400">
-{country}
+{footerContent.countries.map(country=>(
+<li className="flex items-center gap-2 text-slate-400">
+  <span className="h-1.5 w-1.5 rounded-full bg-cyan-500"></span>
+  {country}
 </li>
 ))}
 </ul>
@@ -93,14 +80,14 @@ Helping students achieve their dream of studying MBBS abroad through trusted gui
 <div className="flex gap-3">
 <FaPhoneAlt className="mt-1 text-cyan-400"/>
 <div>
-<p className="text-slate-400">+91 XXXXX XXXXX</p>
+<p className="text-slate-400">{footerContent.contact.phone}</p>
 </div>
 </div>
 
 <div className="flex gap-3">
 <FaEnvelope className="mt-1 text-cyan-400"/>
 <div>
-<p className="text-slate-400">info@eduabroad.com</p>
+<p className="text-slate-400">{footerContent.contact.email}</p>
 </div>
 </div>
 
@@ -108,7 +95,7 @@ Helping students achieve their dream of studying MBBS abroad through trusted gui
 <FaMapMarkerAlt className="mt-1 text-cyan-400"/>
 <div>
 <p className="text-slate-400">
-Your Office Address
+{footerContent.contact.address}
 </p>
 </div>
 </div>
@@ -122,7 +109,7 @@ Your Office Address
 <div className="mt-14 border-t border-slate-800 pt-8 flex flex-col md:flex-row items-center justify-between gap-5">
 
 <p className="text-slate-500 text-center md:text-left">
-© {new Date().getFullYear()} EduAbroad. All Rights Reserved.
+© {new Date().getFullYear()}{footerContent.copyright}
 </p>
 
 <button

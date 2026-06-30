@@ -8,40 +8,19 @@ import {
   FaArrowRight,
 } from "react-icons/fa";
 import { scrollToSection } from "../utils/scrollToSection";
-
-const steps = [
-  {
-    number: "01",
-    icon: <FaClipboardCheck />,
-    title: "Free Counselling",
-    desc: "Understand eligibility, country options, budget and career opportunities.",
-  },
-  {
-    number: "02",
-    icon: <FaUniversity />,
-    title: "Choose University",
-    desc: "Select the best NMC-approved university based on your preferences.",
-  },
-  {
-    number: "03",
-    icon: <FaFileSignature />,
-    title: "Admission Process",
-    desc: "Application submission, offer letter and documentation support.",
-  },
-  {
-    number: "04",
-    icon: <FaPassport />,
-    title: "Visa Assistance",
-    desc: "Complete visa guidance with document verification and interview support.",
-  },
-  {
-    number: "05",
-    icon: <FaPlaneDeparture />,
-    title: "Fly Abroad",
-    desc: "Travel assistance, airport pickup and university joining support.",
-  },
-];
-
+import {
+  admissionSection,
+  admissionSteps,
+  admissionCTA,
+} from "../content/admission";
+const iconMap = {
+  counselling: <FaClipboardCheck />,
+  university: <FaUniversity />,
+  documents: <FaFileSignature />,
+  offer: <FaFileSignature />,
+  visa: <FaPassport />,
+  departure: <FaPlaneDeparture />,
+};
 export default function AdmissionProcess() {
   return (
     <section id="process" className="bg-gradient-to-b from-slate-900 to-slate-950 py-20 lg:py-28 overflow-hidden">
@@ -49,26 +28,25 @@ export default function AdmissionProcess() {
 
         <div className="max-w-3xl mx-auto text-center">
           <span className="inline-block rounded-full bg-cyan-500/10 border border-cyan-400/20 px-4 py-2 text-sm font-semibold text-cyan-300">
-            ADMISSION PROCESS
+           {admissionSection.badge}
           </span>
 
-          <h2 className="mt-5 text-4xl md:text-5xl font-black text-white">
-            Your Journey To
-            <span className="block text-cyan-400">Become A Doctor</span>
-          </h2>
-
+       <h2 className="mt-5 text-4xl md:text-5xl font-black text-white">
+  {admissionSection.title}
+  <span className="block text-cyan-400">
+    {admissionSection.highlight}
+  </span>
+</h2>
           <p className="mt-5 text-lg text-slate-300">
-            We make the complete admission process simple, transparent and stress free.
+           {admissionSection.description}
           </p>
         </div>
 
         <div className="relative mt-20">
 
-          <div className="hidden lg:block absolute left-0 right-0 top-14 h-1 bg-gradient-to-r from-cyan-500 via-blue-500 to-cyan-500 rounded-full"></div>
+          <div className="grid gap-8 md:grid-cols-2 xl:grid-cols-3">
 
-          <div className="grid gap-8 lg:grid-cols-5">
-
-            {steps.map((step) => (
+            {admissionSteps.map((step) => (
               <div
                 key={step.number}
                 className="relative group"
@@ -81,7 +59,7 @@ export default function AdmissionProcess() {
                   </div>
 
                   <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-full bg-gradient-to-br from-cyan-500 to-blue-600 text-3xl text-white shadow-lg">
-                    {step.icon}
+                    {iconMap[step.icon]}
                   </div>
 
                   <h3 className="mt-6 text-2xl font-bold text-white">
@@ -104,11 +82,11 @@ export default function AdmissionProcess() {
 
           <div>
             <h3 className="text-3xl font-bold text-white">
-              Start Your MBBS Admission Today
+             {admissionCTA.title}
             </h3>
 
             <p className="mt-3 max-w-2xl text-slate-300">
-              Our expert counsellors will guide you through every step—from choosing the right university to reaching your campus abroad.
+             {admissionCTA.description}
             </p>
           </div>
 
@@ -116,7 +94,7 @@ export default function AdmissionProcess() {
             onClick={() => scrollToSection("counselling")}
             className="flex items-center gap-2 rounded-full bg-gradient-to-r from-cyan-500 to-blue-600 px-8 py-4 font-semibold text-white transition hover:scale-105"
           >
-            Apply Now
+          {admissionCTA.button}
             <FaArrowRight />
           </button>
 

@@ -1,39 +1,6 @@
 import { useState } from "react";
 import { FaChevronDown } from "react-icons/fa";
-
-const faqs = [
-  {
-    question: "Is NEET mandatory for MBBS Abroad?",
-    answer:
-      "Yes. As per current NMC guidelines, qualifying NEET is mandatory for Indian students planning to pursue MBBS abroad.",
-  },
-  {
-    question: "Are the universities NMC approved?",
-    answer:
-      "Yes. We guide students only towards recognized universities that meet NMC eligibility requirements.",
-  },
-  {
-    question: "What is the total cost of MBBS abroad?",
-    answer:
-      "The complete cost generally ranges between ₹18 Lakhs and ₹40 Lakhs depending on the country and university.",
-  },
-  {
-    question: "Do you provide visa assistance?",
-    answer:
-      "Yes. We help with documentation, visa application, interview preparation and travel guidance.",
-  },
-  {
-    question: "Will I get hostel accommodation?",
-    answer:
-      "Yes. Most universities provide hostel facilities and we assist students with accommodation arrangements.",
-  },
-  {
-    question: "Do you charge counselling fees?",
-    answer:
-      "No. Initial counselling and university guidance are completely free.",
-  },
-];
-
+import { faqSection, faqs } from "../content/faq";
 export default function FAQ() {
   const [open, setOpen] = useState(0);
 
@@ -43,16 +10,16 @@ export default function FAQ() {
 
         <div className="text-center">
           <span className="inline-block rounded-full bg-cyan-100 px-4 py-2 text-sm font-semibold text-cyan-700">
-            FREQUENTLY ASKED QUESTIONS
+           {faqSection.badge}
           </span>
 
           <h2 className="mt-5 text-4xl md:text-5xl font-black text-slate-900">
-            Have Questions?
-            <span className="block text-blue-600">We've Got Answers</span>
+           {faqSection.title}
+            <span className="block text-blue-600">{faqSection.highlight}</span>
           </h2>
 
           <p className="mt-5 text-lg text-slate-600">
-            Find answers to the most common questions asked by students and parents.
+           {faqSection.description}
           </p>
         </div>
 
@@ -62,23 +29,30 @@ export default function FAQ() {
 
             <div
               key={item.question}
-              className="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-lg"
+             className={`overflow-hidden rounded-3xl border transition-all duration-300 shadow-lg ${
+  open === index
+    ? "border-cyan-500 shadow-cyan-100"
+    : "border-slate-200 hover:border-cyan-200"
+}`}
             >
 
               <button
                 onClick={() => setOpen(open === index ? -1 : index)}
-                className="flex w-full items-center justify-between p-6 text-left"
+                className="flex w-full items-center justify-between p-6 text-left transition-colors hover:bg-slate-50"
               >
 
-                <h3 className="text-lg md:text-xl font-semibold text-slate-900">
-                  {item.question}
-                </h3>
+                <h3 className={`text-lg md:text-xl font-semibold transition-colors ${
+    open === index ? "text-cyan-700" : "text-slate-900"
+  }`}
+> {item.question} </h3>
 
-                <FaChevronDown
-                  className={`transition duration-300 ${
-                    open === index ? "rotate-180 text-cyan-600" : ""
-                  }`}
-                />
+               <FaChevronDown
+  className={`text-lg transition-all duration-300 ${
+    open === index
+      ? "rotate-180 text-cyan-600"
+      : "text-slate-400"
+  }`}
+/>
 
               </button>
 

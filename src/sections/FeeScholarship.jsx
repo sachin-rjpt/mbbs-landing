@@ -1,5 +1,4 @@
 import {
-  FaRupeeSign,
   FaCalculator,
   FaAward,
   FaPiggyBank,
@@ -7,44 +6,12 @@ import {
   FaCheckCircle,
 } from "react-icons/fa";
 import { scrollToSection } from "../utils/scrollToSection";
-
-const plans = [
-  {
-    title: "Budget Friendly",
-    price: "₹18L - ₹25L",
-    subtitle: "Complete MBBS Cost",
-    items: [
-      "Tuition Fee",
-      "Hostel Included",
-      "Low Living Cost",
-      "No Donation",
-    ],
-  },
-  {
-    title: "Most Popular",
-    price: "₹25L - ₹35L",
-    subtitle: "Top Universities",
-    featured: true,
-    items: [
-      "NMC Approved",
-      "Modern Campus",
-      "Indian Food Available",
-      "High FMGE Success",
-    ],
-  },
-  {
-    title: "Premium Choice",
-    price: "₹35L+",
-    subtitle: "Europe Options",
-    items: [
-      "Scholarship Support",
-      "International Exposure",
-      "Advanced Facilities",
-      "Career Guidance",
-    ],
-  },
-];
-
+import {
+  feeSection,
+  feePlans,
+  budgetCard,
+  scholarshipCard,
+} from "../content/fees";
 export default function FeeScholarship() {
   return (
     <section className="bg-slate-50 py-20 lg:py-28">
@@ -52,23 +19,22 @@ export default function FeeScholarship() {
 
         <div className="max-w-3xl mx-auto text-center">
           <span className="inline-block rounded-full bg-cyan-100 px-4 py-2 text-sm font-semibold text-cyan-700">
-            FEES & SCHOLARSHIPS
+           {feeSection.badge}
           </span>
 
           <h2 className="mt-5 text-4xl md:text-5xl font-black text-slate-900">
-            Study Within
-            <span className="block text-blue-600">Your Budget</span>
+           {feeSection.title}
+            <span className="block text-blue-600">{feeSection.highlight}</span>
           </h2>
 
           <p className="mt-5 text-lg text-slate-600">
-            Compare estimated MBBS costs and explore scholarship opportunities
-            before making your decision.
+           {feeSection.description}
           </p>
         </div>
 
         <div className="mt-16 grid gap-8 lg:grid-cols-3">
 
-          {plans.map((plan) => (
+          {feePlans.map((plan) => (
             <div
               key={plan.title}
               className={`rounded-3xl border p-8 transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl ${
@@ -98,11 +64,15 @@ export default function FeeScholarship() {
                 {plan.title}
               </h3>
 
-              <div className="mt-5 flex items-center text-4xl font-black">
-                <FaRupeeSign className="mr-1 text-2xl" />
-                {plan.price.replace("₹","")}
-              </div>
-
+<div className="mt-5">
+  <h4
+    className={`text-3xl font-black ${
+      plan.featured ? "text-white" : "text-slate-900"
+    }`}
+  >
+    {plan.price}
+  </h4>
+</div>
               <p className={`mt-2 ${plan.featured ? "text-slate-100" : "text-slate-600"}`}>
                 {plan.subtitle}
               </p>
@@ -124,7 +94,7 @@ export default function FeeScholarship() {
                     : "bg-slate-900 text-white hover:bg-blue-700"
                 }`}
               >
-                Get Fee Details
+              Book Free Counselling
               </button>
             </div>
           ))}
@@ -139,19 +109,18 @@ export default function FeeScholarship() {
             </div>
 
             <h3 className="mt-6 text-3xl font-bold">
-              Need A Personalized Cost Estimate?
+             {budgetCard.title}
             </h3>
 
             <p className="mt-4 text-slate-300 leading-7">
-              Our counsellors calculate your expected tuition, hostel,
-              living expenses and travel cost based on your preferred country.
+              {budgetCard.description}
             </p>
 
             <button
               onClick={() => scrollToSection("counselling")}
               className="mt-8 inline-flex items-center gap-2 rounded-full bg-cyan-500 px-7 py-3 font-semibold hover:bg-cyan-600"
             >
-              Calculate My Budget
+            {budgetCard.button}
               <FaArrowRight />
             </button>
           </div>
@@ -162,19 +131,18 @@ export default function FeeScholarship() {
             </div>
 
             <h3 className="mt-6 text-3xl font-bold">
-              Scholarship Guidance
+             {scholarshipCard.title}
             </h3>
 
             <p className="mt-4 leading-7 text-slate-100">
-              Learn about merit-based scholarships, country-specific grants,
-              and fee-saving opportunities with our admission experts.
+             {scholarshipCard.description}
             </p>
 
             <button
               onClick={() => scrollToSection("counselling")}
               className="mt-8 rounded-full bg-white px-7 py-3 font-semibold text-blue-700 hover:bg-slate-100"
             >
-              Check Eligibility
+           {scholarshipCard.button}
             </button>
           </div>
 
