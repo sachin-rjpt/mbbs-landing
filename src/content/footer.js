@@ -6,12 +6,28 @@ export const footerContent = {
   },
 
   quickLinks: [
-    "Home",
-    "Countries",
-    "Admission Process",
-    "Free Counselling",
-    "Fees & Scholarships",
-    "FAQ",
+     {label :"Home",
+      link :"hero"
+     },
+     {
+      label :"Countries",
+      link:"countries"
+     },
+     { label :"Admission Process",
+       link :"admission-process"
+     },
+     {
+      label : "Free Counselling",
+      link :"counselling"
+     },
+      {
+        label :"Fees & Scholarships",
+         link:"fee-scholarship"
+      },
+      {
+        label :"FAQ",
+        link:"faq"
+      }
   ],
 
   countries: [

@@ -141,7 +141,7 @@ className="flex w-full items-center justify-center gap-2 rounded-full bg-gradien
 </button>
 </form>
 <div className="flex flex-col items-center justify-center my-2">
-Our counsellor will contact you shortly.
+<p className="text-white">Our counsellor will contact you shortly.</p>
 <div className="mt-5 flex flex-wrap gap-2">
   <span className="rounded-full bg-cyan-500/10 px-3 py-1 text-xs text-cyan-300">
     Free Guidance

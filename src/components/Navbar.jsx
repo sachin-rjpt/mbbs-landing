@@ -55,8 +55,8 @@ export default function Navbar() {
 
   return (
     <>
-      <header className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${scrolled?"backdrop-blur-xl bg-white/75 shadow-lg border-b border-white/40":"bg-transparent"}`}>
-        <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-5 lg:px-8">
+      <header className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 backdrop-blur-xl bg-white/75 shadow-lg border-b border-white/40":"bg-transparent`}>
+        <div className="mx-auto flex h-15 md:h-20 max-w-7xl items-center justify-between px-5 lg:px-8">
           <button onClick={()=>scrollTo("hero")} className="text-2xl font-black tracking-tight">
             MBBS<span className="text-blue-600">Abroad</span>
           </button>

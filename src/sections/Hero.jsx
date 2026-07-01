@@ -27,9 +27,9 @@ export default function Hero() {
       <div className="absolute bottom-0 right-0 h-96 w-96 rounded-full bg-blue-500/20 blur-[140px]" />
 
       <div className="relative mx-auto max-w-7xl px-6 lg:px-10 py-16 lg:py-24">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+        <div className="grid lg:grid-cols-2 gap-16 my-4 items-center">
           <div>
-            <div className="inline-flex items-center gap-2 rounded-full border border-cyan-400/30 bg-cyan-400/10 px-4 py-2 text-cyan-200 text-sm">
+            <div className="inline-flex items-center gap-2 rounded-full border border-cyan-400/30 bg-cyan-400/10 px-4 py-2  text-cyan-200 text-sm">
               <FaGlobeAsia />
              {hero.badge}
             </div>

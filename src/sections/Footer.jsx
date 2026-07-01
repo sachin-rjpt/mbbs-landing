@@ -9,6 +9,7 @@ import {
   FaArrowUp,
 } from "react-icons/fa";
 import { footerContent } from "../content/footer";
+import { scrollToSection } from "../utils/scrollToSection";
 export default function Footer(){
 
 const scrollTop=()=>window.scrollTo({top:0,behavior:"smooth"});
@@ -50,10 +51,10 @@ return(
 <h3 className="text-xl font-bold">Quick Links</h3>
 <ul className="mt-5 space-y-3">
 {footerContent.quickLinks.map(link=>(
-<li key={link}>
+<li key={link} onClick={()=>scrollToSection(link.link)}>
 <button className="group flex items-center gap-2 text-slate-400 transition hover:text-cyan-400">
   <span className="h-1.5 w-1.5 rounded-full bg-cyan-500 opacity-0 transition group-hover:opacity-100"></span>
-  {link}
+  {link.label}
 </button>
 </li>
 ))}
@@ -109,7 +110,7 @@ return(
 <div className="mt-14 border-t border-slate-800 pt-8 flex flex-col md:flex-row items-center justify-between gap-5">
 
 <p className="text-slate-500 text-center md:text-left">
-© {new Date().getFullYear()}{footerContent.copyright}
+© {new Date().getFullYear()} {footerContent.copyright}
 </p>
 
 <button

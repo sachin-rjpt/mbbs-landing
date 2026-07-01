@@ -30,7 +30,7 @@ setChat(prev=>[
 
 return<>
 {!open?
-<button onClick={()=>setOpen(true)} className="fixed bottom-6 left-4 md:left-6 z-[999] group">
+<button onClick={()=>setOpen(true)} className="fixed bottom-6 right-4 md:right-6 z-[998]">
 <div className="absolute inset-0 rounded-full bg-cyan-500/30 animate-ping"/>
 <div className="relative h-16 w-16 rounded-full bg-gradient-to-br from-cyan-500 to-blue-700 shadow-2xl flex items-center justify-center text-white group-hover:scale-110 transition">
 <LuBotMessageSquare size={30}/>
